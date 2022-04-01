@@ -9,11 +9,12 @@ import {
   gql
 } from "@apollo/client";
 
+import './Navigation.scss'
 
-function HomePage() {
+function Navigation() {
   return (
     <div>Home Page</div>  
   );
 }
 
-export default HomePage;
+export default Navigation;

@@ -1,0 +1,29 @@
+@import "../../index.scss";
+
+.header__actions {
+  display: flex;
+  max-width: 234px;
+  width: 100%;
+  justify-content: flex-end;
+  align-items: center;
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  color: $text;
+  // color: red;
+  // vertical-align: top;
+}
+
+.currency {
+  margin-right: 12px;
+}
+.cart {
+  margin-left: 22px;
+}
+
+
+.img-svg:hover {
+  font-weight: 600;
+  filter: invert(77%) sepia(24%) saturate(873%) hue-rotate(82deg) brightness(89%) contrast(90%);
+}

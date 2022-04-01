@@ -11,8 +11,9 @@ import {
   gql
 } from "@apollo/client";
 
-import  { HomePage, CartPage } from '../../router';
+import  { Category, CartPage } from '../../router';
 import ErrorBoundry from '../error-boundry';
+import Header from '../Header';
 
 const EXCHANGE_RATES = gql`
 query {categories {
@@ -52,13 +53,11 @@ function App() {
     <ErrorBoundry>
       {/* <BookstoreServiceProvider value={bookstoreService}> */}
         <Router>
-          <main role="main" className="container">
-            {/* <ShopHeader numItems={5} total={210} /> */}
+            <Header  />
             <Routes>
-              <Route path="/" element={<HomePage />} />
+              <Route path="/" element={<Category />} />
               <Route path="cart" element={<CartPage />} />
             </Routes>
-          </main>
         </Router>
       {/* </BookstoreServiceProvider> */}
     </ErrorBoundry>
