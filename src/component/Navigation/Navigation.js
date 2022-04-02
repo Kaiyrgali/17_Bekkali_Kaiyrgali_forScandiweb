@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   ApolloClient,
@@ -29,12 +29,10 @@ const CATEGORY_NAMES = gql`
   }
 `;
 
-function Navigation() {
+function Navigation(onCategory) {
   const { error, loading, data } = useQuery(CATEGORY_NAMES);
   // console.log(nameActive);
-  const onCategory = (name) => {
-    console.log(name);
-  };
+
   
   
   if (loading) {return <div>loading...</div>}
@@ -45,8 +43,7 @@ function Navigation() {
         <NavigationItem
           key={category.name}
           name={category.name}
-          onCategory={onCategory}
-          
+                   
         />
       ))}
     </nav>  

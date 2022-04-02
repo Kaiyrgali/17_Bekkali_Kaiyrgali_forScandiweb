@@ -1,17 +1,23 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import './Navigation-Item.scss'
 
 
-function NavigationItem(category, onCategory) {
-  console.log(category, onCategory);
+function NavigationItem(category) {
+  console.log(category);
+  // const navigate = useNavigate();
+  // const gotoArchivePage = () => { navigate(`/archive/${ID}`); }
+  let url = `/${category.name}`
+    // console.log(url);
+
   return (
-      <Link to="#"
-            className='header__navigation-item'
-            onClick={(e)=>onCategory(e)}>
-        {category.name}
-      </Link>
+    <Link to={url}
+          className='header__navigation-item'
+          // onClick={(e)=>onCategory(e)}
+          >
+      {category.name}
+    </Link>
   );
 }
 

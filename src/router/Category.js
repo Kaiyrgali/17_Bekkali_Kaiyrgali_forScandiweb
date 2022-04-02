@@ -1,4 +1,5 @@
 import React from 'react';
+import { useParams } from "react-router-dom";
 import {
   ApolloClient,
   InMemoryCache,
@@ -12,9 +13,11 @@ import {
 import Title from '../component/Title';
 
 function Category() {
+  const { category } = useParams();
+  console.log( category );
   
   return (
-    <Title />
+    <Title name={category}/>
 
   );
 }
