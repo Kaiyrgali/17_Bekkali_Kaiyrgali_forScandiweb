@@ -9,10 +9,13 @@ import {
   gql
 } from "@apollo/client";
 
+import Title from '../component/Title';
+
 function Category() {
   
   return (
-    <div>Home Page</div>  
+    <Title />
+
   );
 }
 

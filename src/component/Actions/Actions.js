@@ -5,11 +5,11 @@ import './Actions.scss'
 
 function Actions() {
   return (
-    <div className='header__actions'> 
+    <div className='header__actions' title="Change currency"> 
     {/* разделить на разныеэлементы можно еще */}
       <div className='img-svg'>
         <span className='currency'>$</span>
-        <img src='change-currency.svg'></img>
+        <img src='change-currency.svg' alt="change"></img>
       </div>
   
       <Link to="/" >

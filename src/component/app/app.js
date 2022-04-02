@@ -56,7 +56,7 @@ function App() {
             <Header  />
             <Routes>
               <Route path="/" element={<Category />} />
-              <Route path="cart" element={<CartPage />} />
+              <Route path="/cart" element={<CartPage />} />
             </Routes>
         </Router>
       {/* </BookstoreServiceProvider> */}

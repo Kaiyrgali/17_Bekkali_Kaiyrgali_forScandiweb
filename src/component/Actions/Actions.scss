@@ -1,16 +1,19 @@
 @import "../../index.scss";
 
 .header__actions {
+
   display: flex;
-  max-width: 234px;
-  width: 100%;
+  // margin-right: 0;
+  // justify-content: right;
+  // max-width: 234px;
+  // width: 100%;
   justify-content: flex-end;
-  align-items: center;
-  font-family: 'Raleway';
-  font-style: normal;
+  align-items: stretch;
+  // font-family: 'Raleway';
+  // font-style: normal;
   font-weight: 500;
   font-size: 18px;
-  color: $text;
+  // color: $text;
   // color: red;
   // vertical-align: top;
 }
@@ -24,6 +27,7 @@
 
 
 .img-svg:hover {
+  cursor: pointer;
   font-weight: 600;
   filter: invert(77%) sepia(24%) saturate(873%) hue-rotate(82deg) brightness(89%) contrast(90%);
 }

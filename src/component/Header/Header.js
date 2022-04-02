@@ -9,7 +9,7 @@ function Header() {
     <div className = "header">
       <Navigation />
       <Link to="/">
-        <img src='a-logo.svg' width="41" alt="logo" title="Back to Category" ></img>
+        <img className='header-logo' src='a-logo.svg' width="41" alt="logo" title="Back to Category" ></img>
       </Link>
       
       <Actions />

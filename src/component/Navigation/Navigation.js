@@ -10,20 +10,45 @@ import {
   gql
 } from "@apollo/client";
 
+import NavigationItem from '../Navigation-Item';
+
 import './Navigation.scss'
 
+// const CATEGORY_NAMES = gql`
+//   query Categ($nameActive: String!) {
+//     categories (nameActive: $nameActive) {
+//       name 
+//     }
+//   }
+// `;
+
+const CATEGORY_NAMES = gql`
+  query { categories {
+      name 
+    }
+  }
+`;
+
 function Navigation() {
+  const { error, loading, data } = useQuery(CATEGORY_NAMES);
+  // console.log(nameActive);
+  const onCategory = (name) => {
+    console.log(name);
+  };
+  
+  
+  if (loading) {return <div>loading...</div>}
+  console.log('data', data);
   return (
     <nav className = "header__navigation">
-      <Link to="/">
-        WOMEN
-      </Link>
-      <Link to="/">
-        MEN
-      </Link>
-      <Link to="/">
-        KIDS
-      </Link>
+      { data.categories.map((category) => (
+        <NavigationItem
+          key={category.name}
+          name={category.name}
+          onCategory={onCategory}
+          
+        />
+      ))}
     </nav>  
   );
 }
