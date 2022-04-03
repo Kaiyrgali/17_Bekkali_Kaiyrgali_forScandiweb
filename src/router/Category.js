@@ -11,14 +11,17 @@ import {
 } from "@apollo/client";
 
 import Title from '../component/Title';
+import ProductList from '../component/Product-List';
 
 function Category() {
   const { category } = useParams();
   console.log( category );
   
   return (
-    <Title name={category}/>
-
+    <div>
+      <Title category={category}/>
+      <ProductList category={category}/>
+    </div>
   );
 }
 

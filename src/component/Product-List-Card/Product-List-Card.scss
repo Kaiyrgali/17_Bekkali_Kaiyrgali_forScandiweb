@@ -1,0 +1,67 @@
+@import '../../index.scss';
+
+.product__list-card {
+  display: block;
+  position: absolute;
+  width: 386px;
+  height: 444px;
+  background: $white;
+  padding: 16px;
+}
+
+.product__list-card:hover {
+  box-shadow: 0px 4px 35px rgba(168, 172, 176, 0.19);
+}
+.product__list-card:hover .card-cart {
+  display: block;
+  // index: 10;
+  // filter: drop-shadow(0px 4px 11px rgba(29, 31, 34, 0.1));
+}
+
+.card-img {
+  // position: static;
+  width: 354px;
+  height: 330px;
+  height: 100%;
+  left: 16px;
+  top: 16px;
+}
+
+.card-content {
+  width: 354px;
+  height: 58px;
+  left: 16px;
+  margin: 370px 16px 0px 16px;
+
+}
+
+.card-content-title {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  color: $text;
+  text-align: left;
+}
+
+.card-content-price {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  color: $text;
+  text-align: left;
+}
+
+.card-cart {
+  display: none;
+  position: absolute;
+  width: 52px;
+  height: 52px;
+  right: 31px;
+  bottom: 72px;
+}
+// .card-cart:hover {
+//   display: none;
+  // filter: drop-shadow(0px 4px 11px rgba(29, 31, 34, 0.1));
+// }

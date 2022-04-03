@@ -8,7 +8,7 @@ function NavigationItem(category) {
   console.log(category);
   // const navigate = useNavigate();
   // const gotoArchivePage = () => { navigate(`/archive/${ID}`); }
-  let url = `/${category.name}`
+  let url = `/category/${category.name}`
     // console.log(url);
 
   return (

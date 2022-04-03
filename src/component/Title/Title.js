@@ -4,7 +4,7 @@ import './Title.scss'
 
 function Title(category) {
   console.log(category);
-  const titleText = (!category.name) ? "Category name" : category.name
+  const titleText = (!category.name) ? "Please choise a category" : category.name
   return (
     <h2 className='title'>{ titleText }</h2>
   );

@@ -11,7 +11,7 @@ import {
   gql
 } from "@apollo/client";
 
-import  { Category, CartPage } from '../../router';
+import  { Category, CartPage, NoPage } from '../../router';
 import ErrorBoundry from '../error-boundry';
 import Header from '../Header';
 
@@ -56,8 +56,9 @@ function App() {
             <Header  />
             <Routes>
               <Route path="/" element={<Category />} />
-              <Route path="/:category" element={<Category />} />
+              <Route path="/category/:category" element={<Category />} />
               <Route path="/cart" element={<CartPage />} />
+              <Route path="*" element={<NoPage />} />
             </Routes>
         </Router>
       {/* </BookstoreServiceProvider> */}

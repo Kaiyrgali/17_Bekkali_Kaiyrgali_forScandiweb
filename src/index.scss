@@ -1,14 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&family=Roboto&display=swap');
 
 $primary: #5ECE7B;
 $info-variant: #B4D2F4;
 $text: #1D1F22;
-$body-background: #FFFFFF;
+$white: #FFFFFF;
 $red-color: rgb(220, 53, 69);
 
 body {
   font-family: 'Raleway', 'Roboto', sans-serif;
-  background-color: $body-background;
+  background-color: $white;
   margin: 0 auto;
   padding: 0;
   max-width: 1240px;
