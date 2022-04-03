@@ -46,8 +46,8 @@ query {categories {
 
 function App() {
   const { error, loading, data } = useQuery(EXCHANGE_RATES);
-  useEffect(()=>
-  console.log(loading, data), [data]); 
+  // useEffect(()=>
+  // console.log(loading, data), [data]); 
 
   return (
     <ErrorBoundry>

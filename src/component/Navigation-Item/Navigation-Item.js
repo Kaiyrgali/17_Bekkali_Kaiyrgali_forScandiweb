@@ -4,11 +4,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import './Navigation-Item.scss'
 
 
-function NavigationItem(category) {
-  console.log(category);
+function NavigationItem({name}) {
+  console.log(name);
   // const navigate = useNavigate();
   // const gotoArchivePage = () => { navigate(`/archive/${ID}`); }
-  let url = `/category/${category.name}`
+  let url = `/category/${name}`
     // console.log(url);
 
   return (
@@ -16,7 +16,7 @@ function NavigationItem(category) {
           className='header__navigation-item'
           // onClick={(e)=>onCategory(e)}
           >
-      {category.name}
+      {name}
     </Link>
   );
 }

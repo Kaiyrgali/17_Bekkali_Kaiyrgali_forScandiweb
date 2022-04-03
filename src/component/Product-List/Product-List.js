@@ -1,4 +1,5 @@
 import React from 'react';
+import { useEffect } from 'react';
 import {
   ApolloClient,
   InMemoryCache,
@@ -12,44 +13,49 @@ import {
 import ProductListCard from '../Product-List-Card'
 import './Product-List.scss'
 
-const EXCHANGE_RATES = gql`
-query {categories {
-  name
-  products {
-    id
-    name
-    inStock
-    gallery
-    description
-    category
-    attributes {
-      id
+const CHANGE_RATES = gql`
+  query Category($category: String!) {
+  category(input: { title: $category }) {
+    products {
+      id 
       name
-  		type
-  		items {
-        displayValue
-        value
-        id
+      gallery
+      prices {
+        currency {
+          label
+  				symbol
+        }
+  			amount
       }
     }
-    prices {
-      amount
-    }
-    brand
-  }
 }
 }
 `;
 
-function ProductList(category) {
-  console.log("category", category)
-  const { error, loading, data } = useQuery(EXCHANGE_RATES);
-  // useEffect(()=>
-  // console.log(loading, data), [data]); 
+
+function ProductList({category}) {
+  // console.log("category", category)
+  const { error, loading, data } = useQuery(CHANGE_RATES, {
+    variables: {
+      category,
+    },
+  });
+  useEffect(()=>
+  console.log('category products', data), [loading]); 
+  if(data) {
+    console.log(data.category.products)
+  }
+  if (!data) {return <div>loading...</div>}
 
   return (
     <div className='product__list'>
-      <ProductListCard />
+      {data.category.products.map((product) => (  
+      <ProductListCard key={product.id}
+                       name={product.name}
+                       picture={product.gallery[0]}
+                       price={'$100'} />
+      ))}
+      
     </div>  
   );
 }

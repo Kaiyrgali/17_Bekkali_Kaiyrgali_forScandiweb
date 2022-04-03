@@ -36,7 +36,7 @@ function Navigation(onCategory) {
   
   
   if (loading) {return <div>loading...</div>}
-  console.log('data', data);
+  // console.log('data', data);
   return (
     <nav className = "header__navigation">
       { data.categories.map((category) => (
