@@ -19,8 +19,7 @@ function ProductListCard({name, picture, price}) {
       <div className='card-content'>
         <p className='card-content-title'>{name}</p>
         <p className='card-content-price'>{price}</p>
-      </div>
-      
+      </div>  
     </div>  
   );
 }
