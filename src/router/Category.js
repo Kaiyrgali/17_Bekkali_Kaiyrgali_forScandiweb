@@ -15,7 +15,7 @@ import ProductList from '../component/Product-List';
 
 function Category() {
   const { category } = useParams();
-  // console.log( category );
+  console.log( 'category', category );
   
   return (
     <div>

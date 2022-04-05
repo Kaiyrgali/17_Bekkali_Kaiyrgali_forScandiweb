@@ -28,6 +28,7 @@ const CHANGE_RATES = gql`
         }
   			amount
       }
+      brand
     }
 }
 }
@@ -48,10 +49,12 @@ function ProductList({category}) {
     <div className='product__list'>
       {data.category.products.map((product) => (  
       <ProductListCard key={product.id}
-                       name={product.name}
+                       id={product.id}
+                       name={product.brand+' '+product.name}
                        inStock={product.inStock}
                        picture={product.gallery[0]}
                        price={'$100'} />
+                       
       ))}
       
     </div>  
