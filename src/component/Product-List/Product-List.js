@@ -19,6 +19,7 @@ const CHANGE_RATES = gql`
     products {
       id 
       name
+      inStock
       gallery
       prices {
         currency {
@@ -34,17 +35,13 @@ const CHANGE_RATES = gql`
 
 
 function ProductList({category}) {
-  // console.log("category", category)
+
   const { error, loading, data } = useQuery(CHANGE_RATES, {
     variables: {
       category,
     },
   });
-  useEffect(()=>
-  console.log('category products', data), [loading]); 
-  if(data) {
-    console.log(data.category.products)
-  }
+
   if (!data) {return <div>loading...</div>}
 
   return (
@@ -52,6 +49,7 @@ function ProductList({category}) {
       {data.category.products.map((product) => (  
       <ProductListCard key={product.id}
                        name={product.name}
+                       inStock={product.inStock}
                        picture={product.gallery[0]}
                        price={'$100'} />
       ))}

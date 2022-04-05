@@ -4,11 +4,17 @@
   position: relative;
   display: inline;
   // position: absolute;
-  width: 386px;
+  width: 356px;
   height: 444px;
+  margin-right: 40px;
+  margin-bottom: 104px;
   background: $white;
   padding: 16px;
-  
+  filter: grayscale(0%);
+}
+
+.inStock {
+  filter: grayscale(100%);
 }
 
 .product__list-card:hover {
@@ -22,21 +28,30 @@
 
 .card-img {
   // position: static;
+  border: 0px;
+  background: none;
   width: 354px;
   height: 330px;
-  height: 100%;
-  left: 16px;
+  object-fit: cover;
+  // filter: grayscale(100%);
+    // min-width: 100%;
+  //   min-height: auto;
+  //   flex-shrink: 0;
+  background-repeat: no-repeat;
+        // background-position: -40px 0px;
+        background-size: cover;
   top: 16px;
 }
 
 .card-content {
+  margin-top: 24px;
   display: block;
   position: relative;
   // width: 354px;
-  // height: 58px;
-  left: 16px;
-  
-
+  height: 58px;
+  // left: 16px;
+  color: $text;
+  text-align: left;
 }
 
 .card-content-title {
@@ -44,8 +59,8 @@
   font-style: normal;
   font-weight: 300;
   font-size: 18px;
-  color: $text;
-  text-align: left;
+  // color: $text;
+  // text-align: left;
 }
 
 .card-content-price {
@@ -53,18 +68,20 @@
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
-  color: $text;
-  text-align: left;
+  // color: $text;
+  // text-align: left;
 }
 
 .card-cart {
-  // index: -100;
+  // index: 100;
   display: none;
   position: absolute;
   width: 52px;
   height: 52px;
-  right: 31px;
-  bottom: 72px;
+  right: 15px;
+  bottom: 98px;
+  // background-repeat: no-repeat;
+  // background-size: cover;
 }
 // .card-cart:hover {
 //   display: none;
