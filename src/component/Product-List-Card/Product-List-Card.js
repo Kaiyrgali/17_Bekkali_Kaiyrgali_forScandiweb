@@ -26,14 +26,12 @@ function ProductListCard({id, name, inStock, picture, price}) {
   const pictureStyle = {
     backgroundImage: 'url(' + picture + ')',
   };
-  const bottomStyle = {
-    backgroundImage: 'url(' + '"../productCardCart.svg"' + ')',
-  };
+
   const grayscale = (inStock) ? '' : ' outStock';
   // console.log ('grayscale', grayscale)
   return (
     // <section>
-    <Link to={urlDetails} className='block-typy'>
+    <Link to={urlDetails} className='contents'>
       <div className={'product__list-card'+grayscale} >
         <div className='card-img' style={pictureStyle} alt="Product foto" title="##Descriptions##">
           <span className='out-text'>out of stock</span>

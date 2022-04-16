@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import {
@@ -45,15 +46,16 @@ query { currencies {
 //   if (!isOpen) {isOpen=true : isOpen =false
 // }
 
-function ActionsCurrency () {
+function ActionsCurrency ({ activeCurrency }) {
+  console.log('activeCurrency >', activeCurrency);
   
   const [listStyle, setStyle] = useState('hidden');
 
-  const [activeCurrency, setCurrency] = useState('$');
+  // const [activeCurrency, setCurrency] = useState('$'); // переделать на диспатч
 
   const changeCurrency = (symbol) => {
     setStyle(listStyle=>'hidden');
-    setCurrency(activeCurrency => symbol);
+    // setCurrency(activeCurrency => symbol); // переделать на диспатч
     
        }
 
@@ -62,7 +64,7 @@ function ActionsCurrency () {
       setStyle(listStyle=>'show');
     } else {setStyle(listStyle=>'hidden')}
     // console.log(listStyle)
-  }
+  } //попробовать заменить на тоггле
 
   const { error, loading, data } = useQuery(GET_CURRENCIES);
   if (loading) {return <div>loading...</div> };
@@ -78,7 +80,7 @@ function ActionsCurrency () {
             title="Change currency"
             onClick={changeListStyle} 
       >
-        <span  className='currency'>{activeCurrency}</span>
+        <span className='currency'>{activeCurrency}</span>
         <img className='img-svg' src = { (listStyle === 'hidden') ? arrowDown : arrowUp } alt="change"></img>
       </div>
 
@@ -99,4 +101,11 @@ function ActionsCurrency () {
   );
 }
 
-export default ActionsCurrency;
+const mapStateToProps = (state) => {
+  console.log ('state mapStateToProps >', state);
+  return {
+    activeCurrency: state.activeCurrency,
+  }
+}
+
+export default connect(mapStateToProps, null)(ActionsCurrency);

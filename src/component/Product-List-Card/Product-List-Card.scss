@@ -1,13 +1,13 @@
 @import '../../index.scss';
 
 
-.block-typy {
+.contents {
   display: contents;
   text-decoration: none;
 }
-.card-content {
-  // text-decoration: none;
-}
+// .card-content {
+//   // text-decoration: none;
+// }
 
 .product__list-card {
   position: relative;
@@ -44,7 +44,7 @@
   background: none;
   width: 354px;
   height: 330px;
-  object-fit: cover;
+  object-fit: contain;
   // filter: grayscale(100%);
     // min-width: 100%;
   //   min-height: auto;
@@ -91,6 +91,7 @@
 .card-cart {
   // index: 100;
   display: none;
+  // visibility: visible | hidden
 
   // background-repeat: no-repeat;
   // background-size: cover;

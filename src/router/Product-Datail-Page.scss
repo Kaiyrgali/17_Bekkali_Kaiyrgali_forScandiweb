@@ -1,0 +1,144 @@
+@import '../index.scss';
+
+.pdp-container {
+  display: flex;
+  margin-top: 80px;
+  max-height: 511px;
+  margin-bottom: 72px;
+  text-align: left;
+}
+
+.products-pictures {
+  width: 149px;
+  overflow-y: auto;
+  // height: 80px;
+  justify-content: left;
+}
+
+.pdp-gallery {
+  width: 79px;
+  height: 80px;
+  margin-bottom: 40px;
+  cursor: pointer;
+  object-fit: contain;;
+}
+
+.pdp-gallery:hover {
+  box-shadow: 0px 4px 35px rgba(168, 172, 176, 0.19);
+}
+
+.products-main-picture {
+  margin-top: 0;
+  margin-left: 40px;
+  margin-right: 100px;
+  width: 610px;
+  height: 511px;
+  object-fit: contain;;
+}
+
+.product-details {
+  max-height: 511px;
+  // justify-content: start;
+  margin-top: 0;
+  max-width: 312px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.products-title {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 30px;
+}
+
+.products-title-brand {
+  margin: 0;
+  // margin-bottom: 0;
+  font-weight: 600;
+}
+
+.products-title-name {
+  margin-top: 16px;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.products-attributes, .products-price {
+margin-top: 30px;
+}
+
+.products-attributes-name, .products-price-title {
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+.products-attributes-value {
+  background-color: $white;
+  display: inline-block;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  border: 1px solid;
+  box-sizing: border-box;
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  vertical-align: middle;
+  text-align: center;
+  letter-spacing: 0.05em;
+  margin-right: 12px;
+  margin-bottom: 10px;
+}
+
+.products-attributes-value:hover {
+  border: 1px solid #A6A6A6;
+  color: #A6A6A6;
+}
+
+.products-attributes-value.selected {
+  background: $text;
+  border: 1px solid $text;
+  color: $white;
+}
+
+.products-price-value {
+  margin-top: 10px;
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 18px;
+}
+
+.product-button {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  text-align: center;
+  text-transform: uppercase;
+  color: $white;
+  width: 292px;
+  height: 52px;
+  background-color: $primary;
+  border: none;
+}
+
+.product-button:hover {
+  color: $text;
+}
+
+.product-description {
+  margin-top: 40px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+}

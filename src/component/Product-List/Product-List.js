@@ -10,8 +10,10 @@ import {
   gql
 } from "@apollo/client";
 
-import ProductListCard from '../Product-List-Card'
-import './Product-List.scss'
+import ProductListCard from '../Product-List-Card';
+import Spinner from '../spinner';
+import ErrorIndicator from '../error-indicator';
+import './Product-List.scss';
 
 const CHANGE_RATES = gql`
   query Category($category: String!) {
@@ -43,7 +45,10 @@ function ProductList({category}) {
     },
   });
 
-  if (!data) {return <div>loading...</div>}
+  if (loading) {return <Spinner />}
+  if (error) {
+    console.log('error');
+    return <ErrorIndicator />}
 
   return (
     <div className='product__list'>
