@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Link } from 'react-router-dom';
 import {
   ApolloClient,
@@ -19,7 +20,7 @@ const gotoLink = (urlDetails) => {
 }
 
 function ProductListCard({id, name, inStock, picture, price}) {
-
+  console.log('price', price)
   const urlDetails = `/details/${id}`
   console.log('url', urlDetails);
 
@@ -49,5 +50,6 @@ function ProductListCard({id, name, inStock, picture, price}) {
     </Link>
   );
 }
+
 
 export default ProductListCard;

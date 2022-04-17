@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { useParams } from "react-router-dom";
 import { useEffect } from 'react';
+import { connect } from 'react-redux';
 
-import './Product-Datail-Page.scss'
+import Spinner from '../component/spinner';
+import ErrorIndicator from '../component/error-indicator';
+import './Product-Datail-Page.scss';
 
 import {
   ApolloClient,
@@ -52,38 +55,50 @@ const addClass = (e) => {
   e.target.classList.add('selected');
 }
 
-function ProductDatailPage() {
+function ProductDatailPage({activeCurrency}) {
   const { id }  = useParams();
   console.log('id', id);
+  const [activePicture, setPicture] = useState();
 
   const { error, loading, data } = useQuery(GET_PRODUCT, {
     variables: {
       id,
     },
   });
+
   useEffect(()=>
   console.log('data.product', data), [data]); 
 
-  const [activePicture, setPicture] = useState();
-  if(data) {
+  if (loading) return <Spinner />;
+  if (error) {
+    console.log('error');
+    return <ErrorIndicator />}
+
     const mainsPicture = (activePicture) ? activePicture : data.product.gallery[0];
     const isAttributes = (data.product.attributes[0]===undefined);
 
+    const price=data.product.prices.find(
+      (index)=>index.currency.symbol === activeCurrency
+      );
+    console.log('price PDP > ', price);
+
     console.log(data.product.description);
+
     return (
       <div className="pdp-container">
         {/* {id} */}
 
-        <div className='products-pictures'>
-          {data.product.gallery.map((pictures) => (  
-            <img 
-              key={pictures}
-              src={pictures}
-              alt='gallery'
-              className='pdp-gallery'
-              title='close-up'
-              onClick={()=>setPicture(pictures)}>
-            </img>
+        <div className='products-gallery'>
+          {data.product.gallery.map((pictures) => (
+            <button key={pictures} className='products-gallery-button' onClick={()=>setPicture(pictures)}>
+              <img 
+                src={pictures}
+                alt='gallery'
+                className='products-gallery-picture'
+                title='close-up'
+                >
+              </img>
+            </button>  
           ))}
         </div>
 
@@ -111,7 +126,7 @@ function ProductDatailPage() {
 
           <div className='products-price'>
             <p className='products-price-title'>price:</p>
-            <p className='products-price-value'>{data.product.prices[0].currency.symbol+''+data.product.prices[0].amount}</p>
+            <p className='products-price-value'>{price.currency.symbol+''+price.amount}</p>
           </div>
 
           <button className='product-button'>
@@ -128,6 +143,15 @@ function ProductDatailPage() {
       </div>
     );
 }
+// }
+
+const mapStateToProps = (state) => {
+  console.log ('state in Product-List-Card >', state);
+  return {
+    activeCurrency: state.activeCurrency,
+  }
 }
 
-export default ProductDatailPage;
+export default connect(mapStateToProps, null)(ProductDatailPage);
+
+// export default ProductDatailPage;
