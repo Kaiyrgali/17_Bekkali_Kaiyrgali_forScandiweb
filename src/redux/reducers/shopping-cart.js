@@ -1,10 +1,16 @@
-const updateShoppingCart = (state, action) => {
-  if (state === undefined) {
-    return {
-      cartItems: [],
-      orderTotal: 0,
-    };
-  }
+const updateShoppingCart = (
+  state={
+    cartItems: [],
+    itemsCount: 0,
+    orderTotal: 0,
+  }, action) => {
+  // if (state === undefined) {
+  //   return {
+  //     cartItems: [],
+  //     itemsCount: 0,
+  //     orderTotal: 0,
+  //   };
+  // }
 
   switch (action.type) {
     case 'BOOK_ADDED_TO_CART':

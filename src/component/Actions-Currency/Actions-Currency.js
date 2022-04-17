@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { setCurrencyActive } from '../../redux/actions';
 
 import {
   ApolloClient,
@@ -46,8 +47,9 @@ query { currencies {
 //   if (!isOpen) {isOpen=true : isOpen =false
 // }
 
-function ActionsCurrency ({ activeCurrency }) {
-  console.log('activeCurrency >', activeCurrency);
+function ActionsCurrency ({ localCurrency, changeActiveCurrency }) {
+  console.log('localCurrency >', localCurrency);
+  // console.log('changeActiveCurrency >', changeActiveCurrency);
   
   const [listStyle, setStyle] = useState('hidden');
 
@@ -55,7 +57,7 @@ function ActionsCurrency ({ activeCurrency }) {
 
   const changeCurrency = (symbol) => {
     setStyle(listStyle=>'hidden');
-    // setCurrency(activeCurrency => symbol); // переделать на диспатч
+    changeActiveCurrency(symbol)// setCurrency(activeCurrency => symbol); // переделать на диспатч
     
        }
 
@@ -80,7 +82,7 @@ function ActionsCurrency ({ activeCurrency }) {
             title="Change currency"
             onClick={changeListStyle} 
       >
-        <span className='currency'>{activeCurrency}</span>
+        <span className='currency'>{localCurrency}</span>
         <img className='img-svg' src = { (listStyle === 'hidden') ? arrowDown : arrowUp } alt="change"></img>
       </div>
 
@@ -101,11 +103,19 @@ function ActionsCurrency ({ activeCurrency }) {
   );
 }
 
-const mapStateToProps = (state) => {
-  console.log ('state mapStateToProps >', state);
+const mapStateToProps = ({ activeCurrency } ) => {
+  console.log ('state mapStateToProps >', activeCurrency.activeCurrency);
   return {
-    activeCurrency: state.activeCurrency,
+    localCurrency: activeCurrency.activeCurrency,
   }
 }
 
-export default connect(mapStateToProps, null)(ActionsCurrency);
+const mapDispatchToProps = (dispatch) => ({
+  changeActiveCurrency: (newCurrency) => {
+    // const action = {type: 'SET_CURRENCY_ACTIVE'}
+    // console.log('dispatch currency', newCurrency);
+    dispatch(setCurrencyActive(newCurrency));
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ActionsCurrency);

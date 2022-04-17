@@ -12,9 +12,12 @@ const booksError = (error) => ({
   payload: error,
 });
 
-export const currencySetActive = (activeCurrency) => ({
-  payload: activeCurrency,
-})
+export const setCurrencyActive = (newCurrency) => {
+  console.log('newCurrency', newCurrency);
+  return ({
+  type: 'SET_CURRENCY_ACTIVE',
+  payload: newCurrency,
+})}
 
 
 export const bookAddedToCart = (bookId) => ({

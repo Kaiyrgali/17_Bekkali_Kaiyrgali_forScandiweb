@@ -78,7 +78,7 @@ function ProductDatailPage({activeCurrency}) {
     const isAttributes = (data.product.attributes[0]===undefined);
 
     const price=data.product.prices.find(
-      (index)=>index.currency.symbol === activeCurrency
+      (index)=>index.currency.symbol === activeCurrency.activeCurrency
       );
     console.log('price PDP > ', price);
 
