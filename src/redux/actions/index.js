@@ -1,7 +1,9 @@
 import {
-  setCurrencyActive
+  setCurrencyActive,
+  itemAddedToCart,
 } from './actions';
 
 export {
-  setCurrencyActive
+  setCurrencyActive,
+  itemAddedToCart,
 };

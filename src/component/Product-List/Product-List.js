@@ -59,7 +59,7 @@ function ProductList({category, activeCurrency}) {
     <div className='product__list'>
       {data.category.products.map((product) => {
         const price=product.prices.find(
-          (index)=>index.currency.symbol === activeCurrency.activeCurrency
+          (index)=>index.currency.symbol === activeCurrency
           );
         return (
           <ProductListCard key={product.id}

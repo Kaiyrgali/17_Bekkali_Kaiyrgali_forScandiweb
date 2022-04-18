@@ -29,9 +29,9 @@
 
 .img-svg:hover {
   cursor: pointer;
-  font-weight: 600;
-  color: $primary;
-  // filter: invert(77%) sepia(24%) saturate(873%) hue-rotate(82deg) brightness(89%) contrast(90%);
+  // font-weight: 600;
+  // color: $primary;
+  filter: invert(77%) sepia(24%) saturate(873%) hue-rotate(82deg) brightness(89%) contrast(90%);
 }
 
 .hidden {

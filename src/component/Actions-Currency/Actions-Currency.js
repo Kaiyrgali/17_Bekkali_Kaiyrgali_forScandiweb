@@ -83,7 +83,7 @@ function ActionsCurrency ({ localCurrency, changeActiveCurrency }) {
             onClick={changeListStyle} 
       >
         <span className='currency'>{localCurrency}</span>
-        <img className='img-svg' src = { (listStyle === 'hidden') ? arrowDown : arrowUp } alt="change"></img>
+        <img src = { (listStyle === 'hidden') ? arrowDown : arrowUp } alt="change"></img>
       </div>
 
       <div className={listStyle}>
@@ -103,17 +103,15 @@ function ActionsCurrency ({ localCurrency, changeActiveCurrency }) {
   );
 }
 
-const mapStateToProps = ({ activeCurrency } ) => {
-  console.log ('state mapStateToProps >', activeCurrency.activeCurrency);
+const mapStateToProps = ( state ) => {
+  console.log ('state mapStateToProps >', state);
   return {
-    localCurrency: activeCurrency.activeCurrency,
+    localCurrency: state.activeCurrency,
   }
 }
 
 const mapDispatchToProps = (dispatch) => ({
   changeActiveCurrency: (newCurrency) => {
-    // const action = {type: 'SET_CURRENCY_ACTIVE'}
-    // console.log('dispatch currency', newCurrency);
     dispatch(setCurrencyActive(newCurrency));
   },
 });

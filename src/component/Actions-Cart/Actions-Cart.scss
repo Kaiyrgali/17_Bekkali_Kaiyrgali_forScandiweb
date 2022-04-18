@@ -1,0 +1,32 @@
+@import "../../index.scss";
+
+.cart_link {
+  margin-left: 22px;
+  text-decoration: none;
+  color: $text;
+  position: relative;
+}
+
+.cart_link:hover {
+  cursor: pointer;
+  // font-weight: 600;
+  filter: invert(77%) sepia(24%) saturate(873%) hue-rotate(82deg) brightness(89%) contrast(90%);
+}
+
+.cart_link-count {
+  position: absolute;
+  left: 80%;
+  bottom: 70%;
+  width: 20px;
+  height: 20px;
+  color: $white;
+  border-radius: 50%;
+  background-color: $text;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+}

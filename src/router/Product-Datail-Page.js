@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useParams } from "react-router-dom";
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { itemAddedToCart } from '../redux/actions'
 
 import Spinner from '../component/spinner';
 import ErrorIndicator from '../component/error-indicator';
@@ -53,11 +54,29 @@ const addClass = (e) => {
     element.classList.remove('selected')
   });
   e.target.classList.add('selected');
-}
+  // const atr = e.target.outerText;
+  // console.log(atr);
+};
 
-function ProductDatailPage({activeCurrency}) {
+
+function ProductDatailPage({activeCurrency, shoppingCart, addItemToCart}) {
   const { id }  = useParams();
-  console.log('id', id);
+  
+  const addToCart = (item, isAttribute) => {
+    const itemToCart = {
+      brand = 
+    }
+    const selectedAtr = document.querySelector('.selected');
+    if (isAttribute) {
+      addItemToCart([ item, 'none' ])
+    } else if (selectedAtr !== null) {
+        addItemToCart([ item, selectedAtr.outerText ])
+      } 
+  }
+
+  console.log('PDP shoppinCart >', shoppingCart);
+
+  // console.log('id', id);
   const [activePicture, setPicture] = useState();
 
   const { error, loading, data } = useQuery(GET_PRODUCT, {
@@ -76,13 +95,14 @@ function ProductDatailPage({activeCurrency}) {
 
     const mainsPicture = (activePicture) ? activePicture : data.product.gallery[0];
     const isAttributes = (data.product.attributes[0]===undefined);
-
+   
     const price=data.product.prices.find(
-      (index)=>index.currency.symbol === activeCurrency.activeCurrency
+      (index)=>index.currency.symbol === activeCurrency
       );
     console.log('price PDP > ', price);
 
     console.log(data.product.description);
+
 
     return (
       <div className="pdp-container">
@@ -126,10 +146,12 @@ function ProductDatailPage({activeCurrency}) {
 
           <div className='products-price'>
             <p className='products-price-title'>price:</p>
-            <p className='products-price-value'>{price.currency.symbol+''+price.amount}</p>
+            <p className='products-price-value'>{price.currency.symbol+''+price.amount.toFixed(2)}</p>
           </div>
 
-          <button className='product-button'>
+          <button className='product-button'
+                  onClick={()=>addToCart(data.product, isAttributes)}
+          >
             add to card
           </button>
 
@@ -149,9 +171,16 @@ const mapStateToProps = (state) => {
   console.log ('state in Product-List-Card >', state);
   return {
     activeCurrency: state.activeCurrency,
+    shoppingCart: state.shoppingCart,
   }
 }
 
-export default connect(mapStateToProps, null)(ProductDatailPage);
+const mapDispatchToProps = (dispatch) => ({
+    addItemToCart: (newItem) => {
+      dispatch(itemAddedToCart(newItem));
+    },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductDatailPage);
 
 // export default ProductDatailPage;
