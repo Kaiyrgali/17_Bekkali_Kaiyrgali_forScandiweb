@@ -68,10 +68,11 @@ function ProductDatailPage({activeCurrency, shoppingCart, addItemToCart}) {
     };
     if (atrToCart) {
       console.log(shoppingCart);
-      const itemJson = JSON.stringify(item)+`, "atr": ${atrToCart}`;    
-      if (shoppingCart.has(itemJson)) {
-        shoppingCart.set(itemJson, shoppingCart.get(itemJson)+1)
-        } else {shoppingCart.set(itemJson, 1)
+      const itemJson = JSON.stringify(item);
+      const itemForMap = itemJson.substring(0, itemJson.length - 1)+`, "atr": "${atrToCart}"}`;    
+      if (shoppingCart.has(itemForMap)) {
+        shoppingCart.set(itemForMap, shoppingCart.get(itemForMap)+1)
+        } else {shoppingCart.set(itemForMap, 1)
           }
       addItemToCart(shoppingCart)
     }

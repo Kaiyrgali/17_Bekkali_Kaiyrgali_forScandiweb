@@ -1,2 +1,72 @@
 @import '../../index.scss';
 
+.product-cart {
+  display: flex;
+  margin-top: 60px;
+  border-top: 1px solid $line;
+  text-align-last: left;
+  max-width: 1098px;
+  justify-content: space-between;
+  padding-top: 20px;
+  // color: red;
+  // width: 100%;
+}
+
+.card-details {
+  // max-width: fit-content;
+}
+
+.products-title {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 30px;
+  // text-align: left;
+}
+
+.products-title-brand {
+  margin: 0;
+  // margin-bottom: 0;
+  font-weight: 600;
+}
+
+.products-title-name {
+  margin-top: 16px;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.cart-actions {
+  display: flex;
+  height: 185px;
+  width: 198px;
+  // vertical-align: middle;
+  // text-align: center;
+}
+
+.cart-count {
+  display: block;
+  width: 45px;
+  height: 100%;
+}
+
+.cart-count-number {
+  // position: absolute;
+  // display: block;
+  height: 95px;
+  // margin: auto;
+  text-align: center;
+  // line-height: 95px;
+  // vertical-align: middle;
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+}
+
+.cart-img {
+  width: 141px;
+  height: 185px;
+  object-fit: fill;
+
+}
