@@ -54,25 +54,62 @@ const addClass = (e) => {
     element.classList.remove('selected')
   });
   e.target.classList.add('selected');
-  // const atr = e.target.outerText;
-  // console.log(atr);
 };
-
 
 function ProductDatailPage({activeCurrency, shoppingCart, addItemToCart}) {
   const { id }  = useParams();
   
-  const addToCart = (item, isAttribute) => {
-    const itemToCart = {
-      brand = 
+  const addToCart = (item, currentAtr) => {
+    const selected = document.querySelector('.selected');
+    let atrToCart = false;
+    if (currentAtr ==='') {atrToCart = 'none'};
+    if (selected !== null) {
+      atrToCart = selected.innerHTML;
+    };
+    if (atrToCart) {
+      console.log(shoppingCart);
+      const itemJson = JSON.stringify(item)+`, "atr": ${atrToCart}`;    
+      if (shoppingCart.has(itemJson)) {
+        shoppingCart.set(itemJson, shoppingCart.get(itemJson)+1)
+        } else {shoppingCart.set(itemJson, 1)
+          }
+      addItemToCart(shoppingCart)
     }
-    const selectedAtr = document.querySelector('.selected');
-    if (isAttribute) {
-      addItemToCart([ item, 'none' ])
-    } else if (selectedAtr !== null) {
-        addItemToCart([ item, selectedAtr.outerText ])
-      } 
   }
+    
+
+    // const atrToCart = 
+    //   swith 
+    //   case (isAttribute):
+    //     return 'none' ? selected.outerText : 'none';
+    // console.log (atrToCart);
+    // const itemToCart = {
+    //   id: item.id,
+    //   brand: item.brand, 
+    //   name: item.name,
+    //   prices: item.prices,
+    //   attributes: item.attributes[0].items,
+    //   selectedAtr: selectedAtr.outerText,
+    // };
+    // console.log(shoppingCart)
+    // if (shoppingCart.cartItems.find((index)=>(index))) {
+    //   console.log('index', index);
+    //   const toCart = shoppingCart.map((index)=>{
+    //     if (index.id===itemToCart.id&&index.selectedAtr===itemToCart.selectedAtr) {
+    //       return 
+    //     }
+    //   })
+    //     )
+    //   const cartItems = [...shoppingCart, shoppingCart.cartItems[index].count ++];
+    //   console.log(cartItems);
+    // } else {
+    //   console.log('index', index);
+    // }
+
+    // console.log('itemToCart', itemToCart)
+    // if (isAttribute ||  selected.outerText === null) {
+    //   addItemToCart([ item, atrToCart ])
+    // };
 
   console.log('PDP shoppinCart >', shoppingCart);
 
@@ -95,6 +132,7 @@ function ProductDatailPage({activeCurrency, shoppingCart, addItemToCart}) {
 
     const mainsPicture = (activePicture) ? activePicture : data.product.gallery[0];
     const isAttributes = (data.product.attributes[0]===undefined);
+    const currentAtr = isAttributes ? '' : data.product.attributes[0].name
    
     const price=data.product.prices.find(
       (index)=>index.currency.symbol === activeCurrency
@@ -134,7 +172,7 @@ function ProductDatailPage({activeCurrency, shoppingCart, addItemToCart}) {
           </div>
           
           <div className='products-attributes'>
-            <p className='products-attributes-name'>{ isAttributes ? '' : data.product.attributes[0].name}</p>
+            <p className='products-attributes-name'>{currentAtr}</p>
             {isAttributes ? '' : data.product.attributes[0].items.map((item) => (  
             <button className='products-attributes-value'
                     key={item.value}
@@ -150,8 +188,7 @@ function ProductDatailPage({activeCurrency, shoppingCart, addItemToCart}) {
           </div>
 
           <button className='product-button'
-                  onClick={()=>addToCart(data.product, isAttributes)}
-          >
+                  onClick={()=>{addToCart(data.product, currentAtr)}}>
             add to card
           </button>
 
@@ -171,7 +208,7 @@ const mapStateToProps = (state) => {
   console.log ('state in Product-List-Card >', state);
   return {
     activeCurrency: state.activeCurrency,
-    shoppingCart: state.shoppingCart,
+    shoppingCart: state.shoppingCart.cartItems,
   }
 }
 

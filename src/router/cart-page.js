@@ -12,10 +12,18 @@ function CartPage({ activeCurrency, shoppingCart }) {
     <div>
       <div className='cart-title'>cart</div>
       <div className='cart-list'>
-        {(shoppingCart.cartItems.length>0) ?
-          <CartListItem /> :
-          <div className='cart-empty'>Your card is currently empty</div>
-        }
+        {/* {(shoppingCart.cartItems.size>0) ? */}
+          {/* {shoppingCart.cartItems.forEach((value, key, map) =>  */}
+            { shoppingCart.cartItems.entries().map(()=>
+              console.log('1'))
+              // return (<p>{value}</p>)
+              }
+              {/* <CartListItem key={key}  */}
+                          {/* product={key}
+                           count={value} />
+          // )} */}
+          {/* : <div><p>Your card is empty</p></div>
+          } */}
       </div>
 
       <div className='cart-total'>

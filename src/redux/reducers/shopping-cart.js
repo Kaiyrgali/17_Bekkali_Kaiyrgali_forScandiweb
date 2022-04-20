@@ -1,6 +1,6 @@
 const updateShoppingCart = (state={
   shoppingCart: {
-    cartItems: [],
+    cartItems: new Map(),
     itemsCount: 0,
     orderTotal: 0,
 }},

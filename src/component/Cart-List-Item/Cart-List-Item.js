@@ -2,9 +2,11 @@ import React from 'react';
 
 import './Cart-List-Item.scss'
 
-function CartListItem() {
+function CartListItem({product, count}) {
+  // const item = JSON.parse(product);
+  // console.log('item', count)
   return (
-    <div>Home Page</div>  
+    <div><p>Home Page</p></div>  
   );
 }
 
