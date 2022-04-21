@@ -10,7 +10,7 @@
 .cart_link:hover {
   cursor: pointer;
   // font-weight: 600;
-  filter: invert(77%) sepia(24%) saturate(873%) hue-rotate(82deg) brightness(89%) contrast(90%);
+  filter: $filter-in-primary;
 }
 
 .cart_link-count {

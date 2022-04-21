@@ -6,9 +6,13 @@ import './cart-page.scss';
 
 
 function CartPage({ activeCurrency, shoppingCart }) {
-  const total = `${shoppingCart.itemsCount} items for ${activeCurrency}${shoppingCart.orderTotal}`;
+
   const items = Array.from(shoppingCart.cartItems);
-  console.log('shoppingCart >', items)
+
+  const total = `${shoppingCart.itemsCount} items for ${activeCurrency}${shoppingCart.orderTotal}`;
+
+  console.log('shoppingCart >', items);
+  
   return (
     <div>
       <div className='cart-title'>cart</div>
@@ -18,7 +22,8 @@ function CartPage({ activeCurrency, shoppingCart }) {
             <CartListItem key={item}
                           product={item[0]}
                           count={item[1]}
-                          activeCurrency={activeCurrency} />  
+                          activeCurrency={activeCurrency}
+                          shoppingCart={shoppingCart.cartItems} />  
           )
           : <div><p>Your card is empty</p></div>}
       </div>
