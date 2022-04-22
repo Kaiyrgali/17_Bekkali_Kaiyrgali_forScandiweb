@@ -13,20 +13,14 @@ const updateShoppingCart = (state={
         return {
           cartItems: action.payload,
           itemsCount: state.shoppingCart.itemsCount+1,
-          orderTotal: state.shoppingCart.orderTotal+100,
         };
 
       case 'ITEM_REMOVED_FROM_CART':
         return {
-          cartItems: [],
-          itemsCount: itemsCount-1,
-          orderTotal: orderTotal-100,
+          cartItems: action.payload,
+          itemsCount: state.shoppingCart.itemsCount-1,
         };
-        // return updateOrder(state, action.payload, -1);
 
-      // case 'ALL_BOOKS_REMOVED_FROM_CART':
-      //   const item = state.shoppingCart.cartItems.find(({ id }) => id === action.payload);
-      //   return updateOrder(state, action.payload, -item.count);
 
       default:
         return state.shoppingCart;

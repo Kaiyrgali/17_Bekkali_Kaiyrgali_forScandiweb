@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import CartListItem from '../component/Cart-List-Item';
 
@@ -6,10 +6,31 @@ import './cart-page.scss';
 
 
 function CartPage({ activeCurrency, shoppingCart }) {
-
+  
   const items = Array.from(shoppingCart.cartItems);
 
-  const total = `${shoppingCart.itemsCount} items for ${activeCurrency}${shoppingCart.orderTotal}`;
+  const totalPrice = () => {
+    let newPrice = 0;
+    for (let i = 0; i < items.length; i++) {
+      const element = JSON.parse(items[i][0]);
+      const itemPriceAtr = element.prices.find(
+        (index)=>index.currency.symbol === activeCurrency
+        );
+        newPrice = newPrice + itemPriceAtr.amount*items[i][1]
+    }
+    // setPrice(newPrice);
+    return newPrice;
+  } 
+
+  // console.log(totalPrice());
+  
+
+  const total = `${shoppingCart.itemsCount} items for ${activeCurrency}${totalPrice().toFixed(2)}`;
+  
+    // setPrice(totalPrice)
+  // }
+
+  // const total = items.reduce((sum, next) => (sum + next[0]),0);
 
   console.log('shoppingCart >', items);
   
@@ -46,5 +67,6 @@ const mapStateToProps = (state) => {
 
 // 1. Уброть кнопку с зеленной метки в каталогах
 // 2. Лобавить в корзину с делайлс
+// 4. возможно для деталей  корзины свои аттрибуты
 
 export default connect(mapStateToProps, null)(CartPage);
