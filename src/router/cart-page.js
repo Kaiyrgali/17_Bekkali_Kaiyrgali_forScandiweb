@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import CartListItem from '../component/Cart-List-Item';
+import { totalPrice } from '../units/units';
 
 import './cart-page.scss';
 
@@ -9,23 +10,22 @@ function CartPage({ activeCurrency, shoppingCart }) {
   
   const items = Array.from(shoppingCart.cartItems);
 
-  const totalPrice = () => {
-    let newPrice = 0;
-    for (let i = 0; i < items.length; i++) {
-      const element = JSON.parse(items[i][0]);
-      const itemPriceAtr = element.prices.find(
-        (index)=>index.currency.symbol === activeCurrency
-        );
-        newPrice = newPrice + itemPriceAtr.amount*items[i][1]
-    }
-    // setPrice(newPrice);
-    return newPrice;
-  } 
+  // const totalPrice = () => {
+  //   let newPrice = 0;
+  //   for (let i = 0; i < items.length; i++) {
+  //     const element = JSON.parse(items[i][0]);
+  //     const itemPriceAtr = element.prices.find(
+  //       (index)=>index.currency.symbol === activeCurrency
+  //       );
+  //       newPrice = newPrice + itemPriceAtr.amount*items[i][1]
+  //   }
+  //   return newPrice;
+  // } 
 
   // console.log(totalPrice());
   
 
-  const total = `${shoppingCart.itemsCount} items for ${activeCurrency}${totalPrice().toFixed(2)}`;
+  const total = `${shoppingCart.itemsCount} items for ${activeCurrency}${totalPrice(items, activeCurrency).toFixed(2)}`;
   
     // setPrice(totalPrice)
   // }
