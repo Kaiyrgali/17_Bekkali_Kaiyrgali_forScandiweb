@@ -2,45 +2,21 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import CartListItem from '../component/Cart-List-Item';
-import { totalPrice } from '../units/units';
+import { calcSum, calcQty } from '../units';
 
 import './cart-page.scss';
 
 
 function CartPage({ activeCurrency, shoppingCart }) {
-
-  // const [style, setStyle] = useState(' hidden');
-  
   
   const items = Array.from(shoppingCart.cartItems);
-  const style = items.length > 0 ? '' : ' hidden'
-  // const totalPrice = () => {
-  //   let newPrice = 0;
-  //   for (let i = 0; i < items.length; i++) {
-  //     const element = JSON.parse(items[i][0]);
-  //     const itemPriceAtr = element.prices.find(
-  //       (index)=>index.currency.symbol === activeCurrency
-  //       );
-  //       newPrice = newPrice + itemPriceAtr.amount*items[i][1]
-  //   }
-  //   return newPrice;
-  // } 
+  const style = items.length > 0 ? '' : ' hidden' ;
 
-  // console.log(totalPrice());
-  
+  const total = `${calcQty(items)} items for ${activeCurrency}${calcSum(items, activeCurrency).toFixed(2)}`;
 
-  const total = `${shoppingCart.itemsCount} items for ${activeCurrency}${totalPrice(items, activeCurrency).toFixed(2)}`;
-  
-    // setPrice(totalPrice)
-  // }
-
-  // const total = items.reduce((sum, next) => (sum + next[0]),0);
-
-  console.log('shoppingCart >', items);
-  
   return (
     <div>
-      <div className='cart-title'>cart</div>
+      <p className='cart-title'>cart</p>
       <div className='cart-list'>
         {(items.length>0) ?
           items.map((item) => 
@@ -54,10 +30,9 @@ function CartPage({ activeCurrency, shoppingCart }) {
       </div>
 
       <div className='cart-total'>
-        <p className='cart-total-text'>total: &nbsp; {total}</p>
-        {/* <p >{total}</p> */}
+        <p className='cart-total-text'>total: {total}</p>
         <Link to="#">
-            <button className={'cart-total-check' + style}>check out</button>
+          <button className={'cart-total-check' + style}>check out</button>
         </Link>
       </div>
     </div>
@@ -65,7 +40,6 @@ function CartPage({ activeCurrency, shoppingCart }) {
 }
 
 const mapStateToProps = (state) => {
-  console.log('cart-page-state >', state)
   return ({
     activeCurrency: state.activeCurrency,
     shoppingCart: state.shoppingCart,

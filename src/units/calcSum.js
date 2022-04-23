@@ -1,4 +1,4 @@
-export const totalPrice = (items, activeCurrency) => {
+const calcSum = (items, activeCurrency) => {
   let newPrice = 0;
   for (let i = 0; i < items.length; i++) {
     const element = JSON.parse(items[i][0]);
@@ -8,4 +8,6 @@ export const totalPrice = (items, activeCurrency) => {
       newPrice = newPrice + itemPriceAtr.amount*items[i][1]
   }
   return newPrice;
-} 
+};
+export default calcSum;
+
