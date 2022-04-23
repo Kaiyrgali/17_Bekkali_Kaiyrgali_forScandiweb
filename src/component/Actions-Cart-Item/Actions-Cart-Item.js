@@ -42,7 +42,7 @@ function ActionsCartItem({product, count, activeCurrency, shoppingCart, addItemT
           {isAttributes ? '' : 
             item.attributes[0].items.map((index) => (
               <p className={'mini-attributes-value' 
-              + (index.value === item.atr ? ' selected' : '')
+              + (index.value === item.atr ? ' select' : '')
             }
                 key={index.value} >
                 {index.value}

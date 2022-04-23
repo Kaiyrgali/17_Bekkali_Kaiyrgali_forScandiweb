@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import CartListItem from '../component/Cart-List-Item';
 import { totalPrice } from '../units/units';
@@ -7,9 +8,12 @@ import './cart-page.scss';
 
 
 function CartPage({ activeCurrency, shoppingCart }) {
+
+  // const [style, setStyle] = useState(' hidden');
+  
   
   const items = Array.from(shoppingCart.cartItems);
-
+  const style = items.length > 0 ? '' : ' hidden'
   // const totalPrice = () => {
   //   let newPrice = 0;
   //   for (let i = 0; i < items.length; i++) {
@@ -50,8 +54,11 @@ function CartPage({ activeCurrency, shoppingCart }) {
       </div>
 
       <div className='cart-total'>
-        <p>total: &nbsp;</p>
-        <p className='cart-total-text'>{total}</p>
+        <p className='cart-total-text'>total: &nbsp; {total}</p>
+        {/* <p >{total}</p> */}
+        <Link to="#">
+            <button className={'cart-total-check' + style}>check out</button>
+        </Link>
       </div>
     </div>
   );

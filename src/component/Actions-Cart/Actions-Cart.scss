@@ -5,7 +5,7 @@
   margin-left: 22px;
   text-decoration: none;
   color: $text;
-  position: relative;
+  // position: relative;
   width: 20px;
   height: 20px;
 }
@@ -37,10 +37,13 @@
   text-align: center;
 }
 
+.header-cart {
+  position: relative;
+}
 .mini-list.open {
   display: block;
   position: absolute;
-  right: 400px;
+  right: 0%;
   border: none;
   justify-content: space-between;
   max-width: 325px;

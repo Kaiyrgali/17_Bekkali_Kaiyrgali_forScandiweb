@@ -7,18 +7,53 @@
   font-size: 30px;
 }
 
-.cart-title, .cart-total{
+
+.cart-title {
   display: flex;
   font-family: 'Raleway';
   font-style: normal;
   font-weight: 700;
   font-size: 32px;
-  margin-top: 80px;
   text-align: left;
   margin-bottom: 80px;
   text-transform: uppercase;
+  margin-top: 80px;
+}
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 80px;
+  margin-bottom: 80px;
+  height: 43px;
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
 }
 
 .cart-total-text {
-  // text-transform: lowercase;
+  margin: 0;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+
+.cart-total-check {
+  margin-right: 30px;
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  text-align: center;
+  text-transform: uppercase;
+  color: $white;
+  width: 292px;
+  height: 52px;
+  background-color: $primary;
+  border: none;
+}
+
+.cart-total-check:hover {
+  color: $text;
 }

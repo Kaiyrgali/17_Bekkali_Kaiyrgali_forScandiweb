@@ -29,10 +29,13 @@ function ActionsCart({itemsCount, activeCurrency, shoppingCart}) {
 
   console.log('ActionCart', itemsCount);
   return (
-    <div>
+    <div className='header-cart'
+      onMouseOver={()=>items.length>0 ? setStyle(' open'): null}
+      onMouseOut={()=>setStyle(' hidden')}
+    >
       <Link to="/cart"
             className='cart_link'
-            onMouseOver={()=>items.length>0 ? setStyle(' open'): null} 
+            // onMouseOver={()=>items.length>0 ? setStyle(' open'): null} 
       >
         <img  className='cart_link-img'
               alt='cart'
@@ -44,8 +47,8 @@ function ActionsCart({itemsCount, activeCurrency, shoppingCart}) {
  {/* поменять стили хидден и селектев черех ЮзеСтейт */}
 
       <div className={'mini-list'+style}
-           onMouseOver={()=>setStyle(' open')}
-           onMouseOut={()=>setStyle(' hidden')}
+          //  onMouseOver={()=>setStyle(' open')}
+          //  onMouseOut={()=>setStyle(' hidden')}
            >
         <p className='mini-list-title'>my bag, <span>2 items</span></p>
         <div className=''>
@@ -67,8 +70,14 @@ function ActionsCart({itemsCount, activeCurrency, shoppingCart}) {
         </div>
 
         <div className='cart-btns'>
-          <button className='cart-btn-view'>view bag</button>
-          <button className='cart-btn-check'>check out</button>
+          <Link to="/cart">
+            <button className='cart-btn-view'>
+              view bag
+            </button>
+          </Link>
+          <Link to="#">
+            <button className='cart-btn-check'>check out</button>
+          </Link>
         </div>
       </div>
     </div>
