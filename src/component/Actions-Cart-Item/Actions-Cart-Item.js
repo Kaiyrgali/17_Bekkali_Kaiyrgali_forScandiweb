@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { itemAddedToCart, itemRemovedFromCart } from '../../redux/actions';
+import { itemAddedToCart } from '../../redux/actions';
 
 
 import './Actions-Cart-Item.scss'
 
-function ActionsCartItem({product, count, activeCurrency, shoppingCart, addItemToCart, rumoveItemToCart}) {
+function ActionsCartItem({ product, count, activeCurrency, shoppingCart, addItemToCart }) {
   const item = JSON.parse(product);
   const price=item.prices.find(
     (index)=>index.currency.symbol === activeCurrency
@@ -16,18 +16,13 @@ function ActionsCartItem({product, count, activeCurrency, shoppingCart, addItemT
 
   console.log('item-mini', item, count, price, activeCurrency)
 
-  const removeCount = () => {
-    const newCount = shoppingCart.get(product)-1;
+  const changeQty = (act) => {
+    const newCount = shoppingCart.get(product)+act;
     if (newCount === 0) {
       shoppingCart.delete(product);
     } else {
       shoppingCart.set(product, newCount);
     }
-    rumoveItemToCart(shoppingCart);
-  }
-
-  const addCount = () => {
-    shoppingCart.set(product, shoppingCart.get(product)+1);
     addItemToCart(shoppingCart);
   }
 
@@ -55,12 +50,12 @@ function ActionsCartItem({product, count, activeCurrency, shoppingCart, addItemT
       <div className='mini-actions'>
         <div className='mini-counting'>
           <button className='mini-count-btn'
-          onClick={()=>addCount()}>
+          onClick={()=>changeQty(1)}>
             <img className='mini-count-img' src='../plus-square.svg' alt='plus'></img>
           </button>
             <p className='mini-count-number'>{count}</p>
           <button className='mini-count-btn'
-                  onClick={()=>removeCount()}>
+                  onClick={()=>changeQty(-1)}>
             <img className='mini-count-img' src='../minus-square.svg' alt='minus'></img>
           </button>
         </div>
@@ -78,9 +73,6 @@ function ActionsCartItem({product, count, activeCurrency, shoppingCart, addItemT
 const mapDispatchToProps = (dispatch) => ({
   addItemToCart: (newItem) => {
     dispatch(itemAddedToCart(newItem));
-  },
-  rumoveItemToCart: (newItem) => {
-    dispatch(itemRemovedFromCart(newItem));
   },
 });
 

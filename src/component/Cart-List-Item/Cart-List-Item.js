@@ -1,33 +1,28 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { itemAddedToCart, itemRemovedFromCart } from '../../redux/actions';
+import { itemAddedToCart } from '../../redux/actions';
 
 
 import './Cart-List-Item.scss'
 
-function CartListItem({product, count, activeCurrency, shoppingCart, addItemToCart, rumoveItemToCart}) {
+function CartListItem({product, count, activeCurrency, shoppingCart, addItemToCart }) {
   const item = JSON.parse(product);
   const price=item.prices.find(
     (index)=>index.currency.symbol === activeCurrency
     );
   const [activePicture, setPicture] = useState(0);
   
-  const isAttributes = (item.attributes[0]===undefined);
+  const hasAttributes = (item.attributes[0]===undefined);
 
   console.log('item', item, count, price, activeCurrency)
 
-  const removeCount = () => {
-    const newCount = shoppingCart.get(product)-1;
+  const changeQty = (act) => {
+    const newCount = shoppingCart.get(product)+act;
     if (newCount === 0) {
       shoppingCart.delete(product);
     } else {
       shoppingCart.set(product, newCount);
     }
-    rumoveItemToCart(shoppingCart);
-  }
-
-  const addCount = () => {
-    shoppingCart.set(product, shoppingCart.get(product)+1);
     addItemToCart(shoppingCart);
   }
 
@@ -42,7 +37,7 @@ function CartListItem({product, count, activeCurrency, shoppingCart, addItemToCa
           <p className='products-price-value'>{price.currency.symbol+''+price.amount.toFixed(2)}</p>
         </div>
         <div className='products-attributes'>
-          {isAttributes ? '' : 
+          {hasAttributes ? '' : 
             item.attributes[0].items.map((index) => (
               <p className={'products-attributes-value' + (index.value === item.atr ? ' selected' : '')}
                 key={index.value} >
@@ -56,14 +51,14 @@ function CartListItem({product, count, activeCurrency, shoppingCart, addItemToCa
       <div className='cart-actions'>
         <div className='cart-counting'>
           <button className='cart-count-btn'
-          onClick={()=>addCount()}>
+          onClick={()=>changeQty(1)}>
             <img className='cart-count-img' src='../plus-square.svg' alt='plus'></img>
           </button>
           {/* <div className='cart-count-block'> */}
             <p className='cart-count-number'>{count}</p>
           {/* </div> */}
           <button className='cart-count-btn'
-                  onClick={()=>removeCount()}>
+                  onClick={()=>changeQty(-1)}>
             <img className='cart-count-img' src='../minus-square.svg' alt='minus'></img>
           </button>
         </div>
@@ -96,9 +91,6 @@ function CartListItem({product, count, activeCurrency, shoppingCart, addItemToCa
 const mapDispatchToProps = (dispatch) => ({
   addItemToCart: (newItem) => {
     dispatch(itemAddedToCart(newItem));
-  },
-  rumoveItemToCart: (newItem) => {
-    dispatch(itemRemovedFromCart(newItem));
   },
 });
 
