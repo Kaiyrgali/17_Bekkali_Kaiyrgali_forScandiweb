@@ -1,13 +1,7 @@
 import React from 'react';
-import { useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  HttpLink, 
-  from,
   useQuery,
   gql
 } from "@apollo/client";
@@ -41,8 +35,7 @@ const CHANGE_RATES = gql`
 
 function ProductList({category, activeCurrency}) {
 
-  console.log('activeCurrency PL >', activeCurrency);
-
+  // console.log('activeCurrency PL >', activeCurrency);
   const { error, loading, data } = useQuery(CHANGE_RATES, {
     variables: {
       category,
@@ -50,10 +43,8 @@ function ProductList({category, activeCurrency}) {
   });
 
   if (loading) return <Spinner />;
-  if (error) {
-    console.log('error');
-    return <ErrorIndicator />}
-  if (data) {console.log(data.category.products)}
+  if (error && category===undefined) return null;
+  if (error) return <ErrorIndicator />;
 
   return (
     <div className='product__list'>
@@ -62,18 +53,18 @@ function ProductList({category, activeCurrency}) {
           (index)=>index.currency.symbol === activeCurrency
           );
         return (
-          <ProductListCard key={product.id}
-          id={product.id}
-          name={product.brand+' '+product.name}
-          inStock={product.inStock}
-          picture={product.gallery[0]}
-          price={price.currency.symbol+price.amount.toFixed(2)} />
+          <ProductListCard  key={product.id}
+                            id={product.id}
+                            name={product.brand+' '+product.name}
+                            inStock={product.inStock}
+                            picture={product.gallery[0]}
+                            price={price.currency.symbol+price.amount.toFixed(2)}
+          />
         )
       })}
     </div>  
   );
 }
-
 
 const mapStateToProps = (state) => {
   console.log ('state in Product-List-Card >', state);
@@ -83,5 +74,3 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, null)(ProductList);
-
-// export default ProductList;

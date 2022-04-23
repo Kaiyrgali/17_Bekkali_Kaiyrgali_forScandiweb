@@ -6,15 +6,13 @@ import { itemAddedToCart } from '../../redux/actions';
 import './Cart-List-Item.scss'
 
 function CartListItem({product, count, activeCurrency, shoppingCart, addItemToCart }) {
+
   const item = JSON.parse(product);
   const price=item.prices.find(
     (index)=>index.currency.symbol === activeCurrency
     );
   const [activePicture, setPicture] = useState(0);
-  
   const hasAttributes = (item.attributes[0]===undefined);
-
-  console.log('item', item, count, price, activeCurrency)
 
   const changeQty = (act) => {
     const newCount = shoppingCart.get(product)+act;
@@ -54,9 +52,7 @@ function CartListItem({product, count, activeCurrency, shoppingCart, addItemToCa
           onClick={()=>changeQty(1)}>
             <img className='cart-count-img' src='../plus-square.svg' alt='plus'></img>
           </button>
-          {/* <div className='cart-count-block'> */}
             <p className='cart-count-number'>{count}</p>
-          {/* </div> */}
           <button className='cart-count-btn'
                   onClick={()=>changeQty(-1)}>
             <img className='cart-count-img' src='../minus-square.svg' alt='minus'></img>
@@ -82,7 +78,6 @@ function CartListItem({product, count, activeCurrency, shoppingCart, addItemToCa
             </button>
           </div> 
         </div>
-
       </div>
     </div>
   );

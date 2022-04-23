@@ -18,11 +18,9 @@ const client = new ApolloClient({
 });
 
 ReactDOM.render(
-  // <App />,  
   <ApolloProvider client={client}>
     <App />
   </ApolloProvider>,
-      // <ExchangeRates />,
   document.querySelector('#root'),
 );
 

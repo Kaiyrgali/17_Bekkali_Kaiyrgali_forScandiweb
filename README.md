@@ -1,4 +1,15 @@
 #  Test tasks for http://www.scandiweb.com/
+
+1. Product-Datail-Page
+2. Серый фон при мини корзине
+3. БЭМ
+4. SCSS
+5. РидМи
+6. Перечитка
+7. Попытка снова сократить код в части cartItems
+8. Заменить картинку с кораблем для русской аудитории
+
+
 тут вставить рисунок логотипа компании
 https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKNm4zOvxl_gnGybkNAoliTeAtmKOIeAzVt3y_m0URidYXsthR-YAaNCEeEahL4CYkpvw&usqp=CAU
 

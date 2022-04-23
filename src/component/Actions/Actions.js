@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import ActionsCurrency from '../Actions-Currency';
 import ActionsCart from '../Actions-Cart';
 

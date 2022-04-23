@@ -8,7 +8,7 @@ const reducer = (state, action) => {
       activeCurrency: setActiveCurrency(state, action),
       shoppingCart: updateShoppingCart(state, action),
     })
-}d:
+};
 
 
 export default reducer;

@@ -9,11 +9,6 @@ import ErrorIndicator from '../component/error-indicator';
 import './Product-Datail-Page.scss';
 
 import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  HttpLink, 
-  from,
   useQuery,
   gql
 } from "@apollo/client";
@@ -78,43 +73,6 @@ function ProductDatailPage({activeCurrency, shoppingCart, addItemToCart}) {
     }
   }
     
-
-    // const atrToCart = 
-    //   swith 
-    //   case (isAttribute):
-    //     return 'none' ? selected.outerText : 'none';
-    // console.log (atrToCart);
-    // const itemToCart = {
-    //   id: item.id,
-    //   brand: item.brand, 
-    //   name: item.name,
-    //   prices: item.prices,
-    //   attributes: item.attributes[0].items,
-    //   selectedAtr: selectedAtr.outerText,
-    // };
-    // console.log(shoppingCart)
-    // if (shoppingCart.cartItems.find((index)=>(index))) {
-    //   console.log('index', index);
-    //   const toCart = shoppingCart.map((index)=>{
-    //     if (index.id===itemToCart.id&&index.selectedAtr===itemToCart.selectedAtr) {
-    //       return 
-    //     }
-    //   })
-    //     )
-    //   const cartItems = [...shoppingCart, shoppingCart.cartItems[index].count ++];
-    //   console.log(cartItems);
-    // } else {
-    //   console.log('index', index);
-    // }
-
-    // console.log('itemToCart', itemToCart)
-    // if (isAttribute ||  selected.outerText === null) {
-    //   addItemToCart([ item, atrToCart ])
-    // };
-
-  console.log('PDP shoppinCart >', shoppingCart);
-
-  // console.log('id', id);
   const [activePicture, setPicture] = useState();
 
   const { error, loading, data } = useQuery(GET_PRODUCT, {
@@ -123,13 +81,8 @@ function ProductDatailPage({activeCurrency, shoppingCart, addItemToCart}) {
     },
   });
 
-  useEffect(()=>
-  console.log('data.product', data), [data]); 
-
   if (loading) return <Spinner />;
-  if (error) {
-    console.log('error');
-    return <ErrorIndicator />}
+  if (error) return <ErrorIndicator />
 
     const mainsPicture = (activePicture) ? activePicture : data.product.gallery[0];
     const isAttributes = (data.product.attributes[0]===undefined);
@@ -145,8 +98,6 @@ function ProductDatailPage({activeCurrency, shoppingCart, addItemToCart}) {
 
     return (
       <div className="pdp-container">
-        {/* {id} */}
-
         <div className='products-gallery'>
           {data.product.gallery.map((pictures) => (
             <button key={pictures} className='products-gallery-button' onClick={()=>setPicture(pictures)}>
@@ -203,7 +154,6 @@ function ProductDatailPage({activeCurrency, shoppingCart, addItemToCart}) {
       </div>
     );
 }
-// }
 
 const mapStateToProps = (state) => {
   console.log ('state in Product-List-Card >', state);
@@ -220,5 +170,3 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductDatailPage);
-
-// export default ProductDatailPage;

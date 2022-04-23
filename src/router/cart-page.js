@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import CartListItem from '../component/Cart-List-Item';
@@ -8,10 +8,12 @@ import './cart-page.scss';
 
 
 function CartPage({ activeCurrency, shoppingCart }) {
-  
+
+  // console.log('activeCurrency >', activeCurrency);
+  // console.log('shoppingCart >', shoppingCart);
+
   const items = Array.from(shoppingCart.cartItems);
   const style = items.length > 0 ? '' : ' hidden' ;
-
   const total = `${calcQty(items)} items for ${activeCurrency}${calcSum(items, activeCurrency).toFixed(2)}`;
 
   return (
@@ -45,9 +47,5 @@ const mapStateToProps = (state) => {
     shoppingCart: state.shoppingCart,
   })
 }
-
-// 1. Уброть кнопку с зеленной метки в каталогах
-// 2. Лобавить в корзину с делайлс
-// 4. возможно для деталей  корзины свои аттрибуты
 
 export default connect(mapStateToProps, null)(CartPage);

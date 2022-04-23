@@ -1,19 +1,11 @@
 @import "../../index.scss";
 
 .header__navigation {
-  // margin-left: 65px;
-  // text-transform: uppercase;
   display: flex;
   justify-content: left;
   font-weight: 400;
   font-size: 16px;
-  // font-family: 'Raleway';
-  // font-style: normal;
-  // font-weight: 400;
-  // font-size: 16px;
 }
-
-
 
 a:hover {
   cursor: pointer;

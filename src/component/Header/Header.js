@@ -11,7 +11,6 @@ function Header() {
       <Link to="/">
         <img className='header-logo' src='../a-logo.svg' width="41" alt="logo" title="Back to Category" ></img>
       </Link>
-      
       <Actions />
     </div>  
   );

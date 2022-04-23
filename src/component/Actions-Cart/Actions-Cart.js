@@ -8,17 +8,13 @@ import ActionsCartItem from '../Actions-Cart-Item';
 import './Actions-Cart.scss'
 
 function ActionsCart({ activeCurrency, shoppingCart }) {
-
   const [style, setStyle] = useState(' hidden');
   const items = Array.from(shoppingCart.cartItems);
-
   const total = `${activeCurrency}${calcSum(items, activeCurrency).toFixed(2)}`;
-// itemCount переделать на редюсе Һ упростить акшион? вернуть переменную акт
-//itemcount тут бцдет не нужен
 
   return (
     <div className='header-cart'
-      onMouseOver={()=>items.length > 0 ? setStyle(' open'): null}
+      onMouseOver={()=>items.length > 0 ? setStyle(' open') : null}
       onMouseOut={()=>setStyle(' hidden')}
     >
       <Link to="/cart"
@@ -31,12 +27,8 @@ function ActionsCart({ activeCurrency, shoppingCart }) {
         </img>
         {(items.length > 0) ?  <span className='cart_link-count'>{calcQty(items)}</span>: null}
       </Link>
- {/* поменять стили хидден и селектев черех ЮзеСтейт */}
 
-      <div className={'mini-list'+style}
-          //  onMouseOver={()=>setStyle(' open')}
-          //  onMouseOut={()=>setStyle(' hidden')}
-           >
+      <div className={'mini-list'+style}>
         <p className='mini-list-title'>my bag, <span>{calcQty(items)} items</span></p>
         <div className=''>
         {(items.length>0) ?

@@ -1,15 +1,9 @@
 import React from 'react';
 import { useState } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { setCurrencyActive } from '../../redux/actions';
 
 import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  HttpLink, 
-  from,
   useQuery,
   gql
 } from "@apollo/client";
@@ -30,49 +24,23 @@ query { currencies {
 }
 `;
 
-
-// const getActiveCurrency = (data, activeCurrency) => {
-//   if (!activeCurrency) { return activeCurrency=data.currencies[0].symbol}
-//   activeCurrency = symbol;
-//   console.log('activeCurrency', activeCurrency)
-//   return activeCurrency;
-//   // else { activeCurrency=data.currencies[0].symbol }
-// }
-
-
-
-
-
-// const openCurrencyList = () => {
-//   if (!isOpen) {isOpen=true : isOpen =false
-// }
-
 function ActionsCurrency ({ localCurrency, changeActiveCurrency }) {
-  console.log('localCurrency >', localCurrency);
-  // console.log('changeActiveCurrency >', changeActiveCurrency);
   
   const [listStyle, setStyle] = useState('hidden');
 
-  // const [activeCurrency, setCurrency] = useState('$'); // переделать на диспатч
-
   const changeCurrency = (symbol) => {
-    setStyle(listStyle=>'hidden');
-    changeActiveCurrency(symbol)// setCurrency(activeCurrency => symbol); // переделать на диспатч
-    
-       }
+    setStyle('hidden');
+    changeActiveCurrency(symbol)
+  }
 
   const changeListStyle = () => {
     if (listStyle === 'hidden') {
-      setStyle(listStyle=>'show');
-    } else {setStyle(listStyle=>'hidden')}
-    // console.log(listStyle)
+      setStyle('show');
+    } else {setStyle('hidden')}
   } //попробовать заменить на тоггле
 
   const { error, loading, data } = useQuery(GET_CURRENCIES);
   if (loading) {return <div>loading...</div> };
-  console.log(data);
-  // getActiveCurrency(data);
- 
 
   return (
   
@@ -92,10 +60,7 @@ function ActionsCurrency ({ localCurrency, changeActiveCurrency }) {
                             label={currency.label}
                             symbol={currency.symbol}
                             changeCurrency={changeCurrency}
-                            // changeCurrency={changeCurrency}
-                            // getActiveCurrency={getActiveCurrency}
-                            // setCurrency={setCurrency}
-                             />
+        />
         )}
       </div>
     </div>
@@ -104,7 +69,7 @@ function ActionsCurrency ({ localCurrency, changeActiveCurrency }) {
 }
 
 const mapStateToProps = ( state ) => {
-  console.log ('state mapStateToProps >', state);
+  // console.log ('state mapStateToProps >', state);
   return {
     localCurrency: state.activeCurrency,
   }

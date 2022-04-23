@@ -3,7 +3,6 @@ export const setCurrencyActive = (newCurrency) => ({
   payload: newCurrency,
 })
 
-////////////////////////////
 export const itemAddedToCart = (itemToCart) => ({
   type: 'ITEM_ADDED_TO_CART',
   payload: itemToCart,

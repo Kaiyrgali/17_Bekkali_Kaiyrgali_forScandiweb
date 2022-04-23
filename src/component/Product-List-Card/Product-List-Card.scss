@@ -5,14 +5,10 @@
   display: contents;
   text-decoration: none;
 }
-// .card-content {
-//   // text-decoration: none;
-// }
 
 .product__list-card {
   position: relative;
   display: inline;
-  // position: absolute;
   width: 356px;
   height: 444px;
   margin-right: 40px;
@@ -33,25 +29,18 @@
   height: 52px;
   right: 15px;
   bottom: 98px;
-  // filter: drop-shadow(0px 4px 11px rgba(29, 31, 34, 0.1));
 }
 
 
 
 .card-img {
-  // position: static;
   border: 0px;
   background: none;
   width: 354px;
   height: 330px;
   object-fit: contain;
-  // filter: grayscale(100%);
-    // min-width: 100%;
-  //   min-height: auto;
-  //   flex-shrink: 0;
   background-repeat: no-repeat;
-        // background-position: -40px 0px;
-        background-size: cover;
+  background-size: cover;
   top: 16px;
 }
 
@@ -63,9 +52,7 @@
   margin-top: 24px;
   display: block;
   position: relative;
-  // width: 354px;
   height: 58px;
-  // left: 16px;
   color: $text;
   text-align: left;
 }
@@ -82,22 +69,11 @@
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
-  // color: $text;
-  // text-align: left;
 }
 
 .card-cart {
-  // index: 100;
   display: none;
-  // visibility: visible | hidden
-
-  // background-repeat: no-repeat;
-  // background-size: cover;
 }
-// .card-cart:hover {
-//   display: none;
-  // filter: drop-shadow(0px 4px 11px rgba(29, 31, 34, 0.1));
-// }
 
 .outStock .card-content {
   color: $out-of-stock;
@@ -126,5 +102,4 @@
 
 .outStock:hover .card-cart {
   display: none;
-  // filter: drop-shadow(0px 4px 11px rgba(29, 31, 34, 0.1));
 }

@@ -5,16 +5,17 @@ import { itemAddedToCart } from '../../redux/actions';
 
 import './Actions-Cart-Item.scss'
 
-function ActionsCartItem({ product, count, activeCurrency, shoppingCart, addItemToCart }) {
+function ActionsCartItem({
+  product, count, activeCurrency, shoppingCart, addItemToCart
+}) {
   const item = JSON.parse(product);
   const price=item.prices.find(
     (index)=>index.currency.symbol === activeCurrency
     );
-  // const [activePicture, setPicture] = useState(0);
   
   const isAttributes = (item.attributes[0]===undefined);
 
-  console.log('item-mini', item, count, price, activeCurrency)
+  // console.log('item-mini', item, count, price, activeCurrency)
 
   const changeQty = (act) => {
     const newCount = shoppingCart.get(product)+act;
@@ -33,7 +34,6 @@ function ActionsCartItem({ product, count, activeCurrency, shoppingCart, addItem
           <p className='mini-title'>{item.brand}</p>
           <p className='mini-title'>{item.name}</p>
           <p className='mini-price'>{price.currency.symbol+''+price.amount.toFixed(2)}</p>
-        {/* <div className='mini-attributes'> */}
           {isAttributes ? '' : 
             item.attributes[0].items.map((index) => (
               <p className={'mini-attributes-value' 
@@ -44,7 +44,6 @@ function ActionsCartItem({ product, count, activeCurrency, shoppingCart, addItem
               </p> 
             ))
           }
-        {/* </div> */}
       </div>
 
       <div className='mini-actions'>

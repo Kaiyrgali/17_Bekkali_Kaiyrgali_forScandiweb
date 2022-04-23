@@ -1,9 +1,9 @@
 {
   "name": "17scandiweb",
   "version": "0.1.0",
-  "description": "Test task for valantis company",
+  "description": "Test task for Scandiweb company",
   "main": "index.js",
-  "author": "Bekkali Kaiyrgali <kairgalib@ya.ru>",
+  "author": "Bekkali Kaiyrgali <kairgalibekkali@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "@apollo/client": "^3.5.10",
