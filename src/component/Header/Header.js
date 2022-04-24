@@ -6,13 +6,13 @@ import './Header.scss'
 
 function Header() {
   return (
-    <div className = "header">
+    <header className = "header">
       <Navigation />
       <Link to="/">
-        <img className='header-logo' src='../a-logo.svg' width="41" alt="logo" title="Back to Category" ></img>
+        <img className='logo' src='../a-logo.svg' width="41" alt="logo" title="Back to Category" ></img>
       </Link>
       <Actions />
-    </div>  
+    </header>  
   );
 }
 

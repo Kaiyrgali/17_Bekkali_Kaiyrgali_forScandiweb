@@ -6,7 +6,7 @@ function Title({category}) {
   const titleText = (!category) ? "Please choise a category" : category
   
   return (
-    <h2 className='title'>{ titleText }</h2>
+    <h2 className='category'>{ titleText }</h2>
   );
 }
 

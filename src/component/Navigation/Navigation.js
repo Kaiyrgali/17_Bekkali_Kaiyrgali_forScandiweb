@@ -4,7 +4,7 @@ import {
   gql
 } from "@apollo/client";
 
-import NavigationItem from '../Navigation-Item';
+import NavigationItem from '../NavigationItem';
 
 import './Navigation.scss'
 
@@ -16,13 +16,13 @@ const CATEGORY_NAMES = gql`
   }
 `;
 
-function Navigation(onCategory) {
+function Navigation() {
   const { error, loading, data } = useQuery(CATEGORY_NAMES);
   
   if (loading) {return <div>loading...</div>};
 
   return (
-    <nav className = "header__navigation">
+    <nav className = "navigation">
       { data.categories.map((category) => (
         <NavigationItem
           key={category.name}

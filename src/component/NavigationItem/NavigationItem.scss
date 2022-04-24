@@ -1,0 +1,14 @@
+@import "../../index.scss";
+
+.navigation-item {
+  width: 97px;
+  height: 56px;
+    list-style: none;
+    text-decoration: none;
+    color: $text;
+  }
+
+.navigation-item:hover {
+  border-bottom: 2px solid;
+}
+

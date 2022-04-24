@@ -1,0 +1,114 @@
+@import '../../index.scss';
+
+.basket__item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 41px;
+}
+
+.basket__details {
+  margin: 0;
+  width: 136px;
+  text-align: left;
+}
+
+.basket__brand {
+  margin: 0;
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 160%;
+}
+
+.basket__price {
+  margin-top: 5px;
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.basket__atr {
+  color: $grey;
+  background-color: rgba(166, 166, 166, 0.2);
+  display: inline-block;
+  padding-left: 6px;
+  padding-right: 6px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  border: 1px solid $grey;
+  box-sizing: border-box;
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  overflow-x: auto;
+  margin-right: 8px;
+  margin-top: 7px;
+  margin-bottom: 0;
+}
+
+.basket__atr.select {
+  background-color: $white;
+  border: 1px solid $text;
+  color: $text;
+}
+
+.basket__actions {
+  display: flex;
+  height: 137px;
+  width: 139px;
+}
+
+.basket__item__btn {
+  width: 24px;
+  height: 137px;
+  text-align: center;
+}
+
+.basket__buttons {
+  background-color: $white;
+  width: 24px;
+  height: 24px;
+  border: none;
+  padding: 0;
+  margin-bottom: 0px;
+  cursor: pointer;
+}
+
+.basket__svg  {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.basket__svg:hover {
+  filter: $filter-in-primary;
+}
+
+.basket__number {
+  padding: 0;
+  margin: 0;
+  height: 89px;
+  width: 24px;
+  text-align: center;
+  line-height: 89px;
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.basket__galary {
+  margin-left: 10px;
+  width: 105px;
+  height: 137px;
+}
+
+.basket-picture {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}

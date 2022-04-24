@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from "react-router-dom";
 import Title from '../component/Title';
-import ProductList from '../component/Product-List';
+import ProductList from '../component/ProductList';
 
 function Category() {
   const { category } = useParams();

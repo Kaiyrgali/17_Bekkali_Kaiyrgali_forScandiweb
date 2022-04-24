@@ -1,0 +1,14 @@
+@import "../../index.scss";
+
+.currency__item {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  padding-bottom: 20px;
+}
+
+.currency__item:hover {
+  cursor: pointer;
+  color: $primary
+}

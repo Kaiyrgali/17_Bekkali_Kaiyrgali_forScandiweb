@@ -1,0 +1,125 @@
+@import "../../index.scss";
+
+.basket {
+  position: relative;
+  
+}
+
+.basket__link {
+  position: relative;
+  margin-left: 22px;
+  text-decoration: none;
+  color: $text;
+  width: 20px;
+  height: 20px;
+}
+
+.basket__link:hover {
+  cursor: pointer;
+  filter: $filter-in-primary;
+}
+
+.basket__img {
+  object-fit: fill;
+}
+
+.basket__count {
+  position: absolute;
+  left: 80%;
+  bottom: 70%;
+  width: 20px;
+  height: 20px;
+  color: $white;
+  border-radius: 50%;
+  background-color: $text;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  align-items: center;
+  text-align: center;
+}
+
+.basket__list.open {
+  display: block;
+  position: absolute;
+  right: 0%;
+  border: none;
+  justify-content: space-between;
+  max-width: 325px;
+  max-height: 540px;
+  overflow-y: auto;
+  background: #FFFFFF;
+  z-index: 100;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 8px;
+  padding-bottom: 20px;
+  text-transform: capitalize;
+}
+
+.basket__title {
+  width: 293px;
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  text-align: left;
+  margin-bottom: 23px;
+}
+
+.basket__title span {
+  font-weight: 500;
+  text-transform: lowercase;
+}
+
+.basket__total {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.basket__text {
+  font-weight: 700;
+}
+
+.basket__btns {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  text-align: center;
+}
+
+.basket__view {
+  color: $text;
+  width: 140px;
+  height: 43px;
+  background-color: $white;
+  border: 1px, solid, $text;
+  text-transform: uppercase;
+  margin-right: 6px;
+}
+
+.basket__check {
+  margin-left: 6px;
+  color: $white;
+  width: 140px;
+  height: 43px;
+  background-color: $primary;
+  border: none;
+  text-transform: uppercase;
+}
+
+.basket__check:hover {
+  color: $text;
+}
+
+.basket__view:hover {
+  background-color: $primary;
+}

@@ -1,6 +1,6 @@
 import Category from "./Category";
-import ProductDatailPage from "./Product-Datail-Page";
-import  CartPage from "./cart-page";
+import ProductDatailPage from "./ProductDatailPage";
+import  CartPage from "./CartPage";
 import NoPage from "./NoPage"
 
 export  {
