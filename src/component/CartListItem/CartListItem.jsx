@@ -66,11 +66,11 @@ function CartListItem({
           </button>
         </div>
 
-        <div className="cp-galary">
+        <div className="cp-gallery">
           <img
             src={item.gallery[activePicture]}
             alt="picture"
-            className="cp-galary__img"
+            className="cp-gallery__img"
             title="close-up"
           />
           <div className="cp-chevron">

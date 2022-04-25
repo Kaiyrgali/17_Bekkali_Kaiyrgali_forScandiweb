@@ -15,7 +15,7 @@ function ProductListCard({
   return (
     <Link to={urlDetails} className="contents">
       <div className={`card${grayscale}`}>
-        <div className="card__img" style={pictureStyle} alt="Product foto" title="##Descriptions##">
+        <div className="card__img" style={pictureStyle} alt="Product photo" title="##Descriptions##">
           <span className="cart__text">out of stock</span>
         </div>
         <img className="card__cart" src="../productCardCart.svg" alt="cart" />

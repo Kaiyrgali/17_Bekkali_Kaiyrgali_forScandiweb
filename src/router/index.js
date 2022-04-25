@@ -1,11 +1,11 @@
 import Category from './Category';
-import ProductDatailPage from './ProductDatailPage';
+import ProductDetailsPage from './ProductDetailsPage';
 import CartPage from './CartPage';
 import NoPage from './NoPage';
 
 export {
   Category,
-  ProductDatailPage,
+  ProductDetailsPage,
   CartPage,
   NoPage,
 };

@@ -12,22 +12,22 @@ import ErrorIndicator from '../ErrorIndicator';
 import './ProductList.scss';
 
 const CHANGE_RATES = gql`
-  query Category($category: String!) {
-  category(input: { title: $category }) {
-    products {
-      id 
-      name
-      inStock
-      gallery
-      prices {
-        currency {
-          label
-  				symbol
-        }
-  			amount
-      }
-      brand
-    }
+query Category($category: String!) {
+category(input: { title: $category }) {
+products {
+id 
+name
+inStock
+gallery
+prices {
+currency {
+  label
+  symbol
+}
+amount
+}
+brand
+}
 }
 }
 `;

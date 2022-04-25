@@ -13,7 +13,8 @@ function Header() {
           className="logo"
           src="../a-logo.svg" 
           alt="logo"
-          title="Back to Category" />
+          title="Back to Category"
+        />
       </Link>
       <Actions />
     </header>

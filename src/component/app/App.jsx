@@ -3,9 +3,9 @@ import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import store from '../../redux/store';
 import {
-  Category, CartPage, NoPage, ProductDatailPage,
+  Category, CartPage, NoPage, ProductDetailsPage,
 } from '../../router';
-import ErrorBoundry from '../ErrorBoundry';
+import ErrorBoundary from '../ErrorBoundary';
 import Header from '../Header';
 
 import './App.scss';
@@ -13,18 +13,18 @@ import './App.scss';
 function App() {
   return (
     <Provider store={store}>
-      <ErrorBoundry>
+      <ErrorBoundary>
         <Router>
           <Header />
           <Routes>
             <Route path="/" element={<Category />} />
             <Route path="/category/:category" element={<Category />} />
             <Route path="/cart" element={<CartPage />} />
-            <Route path="/details/:id" element={<ProductDatailPage />} />
+            <Route path="/details/:id" element={<ProductDetailsPage />} />
             <Route path="*" element={<NoPage />} />
           </Routes>
         </Router>
-      </ErrorBoundry>
+      </ErrorBoundary>
     </Provider>
   );
 }

@@ -59,7 +59,7 @@ function ActionsCartItem({
           </button>
         </div>
 
-        <div className="basket__galary">
+        <div className="basket__gallery">
           <img src={item.gallery[0]} alt="picture" className="basket-picture" title="close-up" />
         </div>
 

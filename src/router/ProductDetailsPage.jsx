@@ -11,35 +11,35 @@ import { itemAddedToCart } from '../redux/actions';
 import Spinner from '../component/Spinner';
 import ErrorIndicator from '../component/ErrorIndicator';
 
-import './ProductDatailPage.scss';
+import './ProductDetailsPage.scss';
 
 const GET_PRODUCT = gql` 
 query Product($id: String!)
 {product(id: $id) {
+id
+name
+inStock
+gallery 
+description
+attributes {
+id
+name
+type
+items {
+  displayValue
+  value
   id
-    name
-    inStock
-    gallery 
-    description
-    attributes {
-      id
-      name
-      type
-      items {
-        displayValue
-        value
-        id
-      }
-    }
-    prices {
-      currency {
-        label
-        symbol
-      }
-      amount
-    }
-    brand
-	}
+}
+}
+prices {
+currency {
+  label
+  symbol
+}
+amount
+}
+brand
+}
 }
 `;
 
@@ -51,7 +51,7 @@ const addClass = (e) => {
   e.target.classList.add('selected');
 };
 
-function ProductDatailPage({ activeCurrency, shoppingCart, addItemToCart }) {
+function ProductDetailsPage({ activeCurrency, shoppingCart, addItemToCart }) {
   const { id } = useParams();
 
   const addToCart = (item, currentAtr) => {
@@ -180,4 +180,4 @@ const mapDispatchToProps = (dispatch) => ({
   },
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProductDatailPage);
+export default connect(mapStateToProps, mapDispatchToProps)(ProductDetailsPage);

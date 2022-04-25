@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './component/app';
 import './index.scss';
@@ -6,10 +6,6 @@ import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
-  HttpLink,
-  from,
-  useQuery,
-  gql,
 } from '@apollo/client';
 
 const client = new ApolloClient({

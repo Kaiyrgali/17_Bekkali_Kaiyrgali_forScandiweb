@@ -7,7 +7,6 @@
   width: 100%;
   height: 56px;
   color: $text;
-  // justify-content: space-between;
   text-transform: uppercase;
   display: flex;
   justify-content: space-between;
@@ -17,7 +16,7 @@
 
 .logo {
   position: absolute;
-// width: 41px;
-// height: 41px;
-left: calc(50% - 41px/2);
+  width: 41px;
+  height: 41px;
+  left: calc(50% - 41px/2);
 }
