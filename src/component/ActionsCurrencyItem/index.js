@@ -1,3 +1,3 @@
-import ActionsCurrencyItem from "./ActionsCurrencyItem";
+import ActionsCurrencyItem from './ActionsCurrencyItem';
 
 export default ActionsCurrencyItem;

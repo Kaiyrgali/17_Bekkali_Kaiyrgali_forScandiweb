@@ -1,3 +1,3 @@
-import ActionsCart from "./ActionsCart";
+import ActionsCart from './ActionsCart';
 
 export default ActionsCart;

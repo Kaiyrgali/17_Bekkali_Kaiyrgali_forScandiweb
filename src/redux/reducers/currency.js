@@ -1,13 +1,11 @@
-const setActiveCurrency = (state={activeCurrency: '$'}, action) => {
-  // console.log ('before if', state)
+const setActiveCurrency = (state = { activeCurrency: '$' }, action) => {
   switch (action.type) {
     case 'SET_CURRENCY_ACTIVE':
-      console.log(state, action.type)
       return action.payload;
 
     default:
-      return state.activeCurrency
+      return state.activeCurrency;
   }
-}
+};
 
 export default setActiveCurrency;

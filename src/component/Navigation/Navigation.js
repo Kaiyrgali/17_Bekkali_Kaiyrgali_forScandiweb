@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   useQuery,
-  gql
-} from "@apollo/client";
+  gql,
+} from '@apollo/client';
 
 import NavigationItem from '../NavigationItem';
 
-import './Navigation.scss'
-
+import './Navigation.scss';
 
 const CATEGORY_NAMES = gql`
   query { categories {
@@ -18,18 +17,18 @@ const CATEGORY_NAMES = gql`
 
 function Navigation() {
   const { error, loading, data } = useQuery(CATEGORY_NAMES);
-  
-  if (loading) {return <div>loading...</div>};
+
+  if (loading) { return <div>loading...</div>; }
 
   return (
-    <nav className = "navigation">
+    <nav className="navigation">
       { data.categories.map((category) => (
         <NavigationItem
           key={category.name}
-          name={category.name}        
+          name={category.name}
         />
       ))}
-    </nav>  
+    </nav>
   );
 }
 

@@ -1,10 +1,10 @@
 import React from 'react';
 
-import './NoPage.scss'
+import './NoPage.scss';
 
-function NoPage(category) {
+function NoPage() {
   return (
-    <h2 className='category'>Page not found</h2>
+    <h2 className="category">Page not found</h2>
   );
 }
 

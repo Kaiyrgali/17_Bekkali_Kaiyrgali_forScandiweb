@@ -3,9 +3,9 @@ import React from 'react';
 function ErrorIndicator() {
   return (
     <div>
-      <img src='../error.jpg' alt='Error'></img>
+      <img src="../error.jpg" alt="Error" />
     </div>
-  )
+  );
 }
 
 export default ErrorIndicator;

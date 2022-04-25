@@ -1,3 +1,3 @@
-import ProductListCard from "./ProductListCard";
+import ProductListCard from './ProductListCard';
 
 export default ProductListCard;

@@ -1,15 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import './NavigationItem.scss'
+import './NavigationItem.scss';
 
-function NavigationItem({name}) {
-
-  const url = `/category/${name}`
+function NavigationItem({ name }) {
+  const url = `/category/${name}`;
 
   return (
-    <Link to={url}
-          className='navigation-item'
+    <Link
+      to={url}
+      className="navigation-item"
     >
       {name}
     </Link>
