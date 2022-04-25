@@ -108,3 +108,20 @@
   height: 35px;
   margin-top: 75px;
 }
+
+.cp-atr__color {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  margin-right: 10px;
+  border: none;
+  color: #11ffee00;
+}
+
+.cp-atr__color.selected {
+  border-spacing: 2px;
+  width: 36px;
+  height: 36px;
+  border: 1px solid #5ECE7B;
+  box-sizing: border-box;
+}

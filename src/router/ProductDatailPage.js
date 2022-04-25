@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useParams } from "react-router-dom";
-import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { itemAddedToCart } from '../redux/actions'
 
@@ -44,11 +43,11 @@ query Product($id: String!)
 `;
 
 const addClass = (e) => {
-  const buttons = document.querySelectorAll('.pdp-atr__value');
+  const buttons = document.querySelectorAll('button.pdp-atr__value, button.pdp-atr__color');
   buttons.forEach(element => {
     element.classList.remove('selected')
   });
-  e.target.classList.add('selected');
+    e.target.classList.add('selected');
 };
 
 function ProductDatailPage({activeCurrency, shoppingCart, addItemToCart}) {
@@ -91,7 +90,7 @@ function ProductDatailPage({activeCurrency, shoppingCart, addItemToCart}) {
     const price=data.product.prices.find(
       (index)=>index.currency.symbol === activeCurrency
       );
-    console.log('price PDP > ', price);
+    console.log('currentAtr >',currentAtr);
 
     console.log(data.product.description);
 
@@ -125,13 +124,26 @@ function ProductDatailPage({activeCurrency, shoppingCart, addItemToCart}) {
           
           <div className='pdp-atr'>
             <p className='pdp-atr__name'>{currentAtr}</p>
-            {isAttributes ? '' : data.product.attributes[0].items.map((item) => (  
-            <button className='pdp-atr__value'
-                    key={item.value}
-                    onClick={(e)=>addClass(e)}>
-              {item.value}
-            </button>
-          ))}
+            <div>
+              { currentAtr === 'Color' ? data.product.attributes[0].items.map((item) => (  
+                <button className='pdp-atr__color'
+                        key={item.value}
+                        style={{backgroundColor: item.value}}
+                        onClick={(e)=>addClass(e)}>
+                  {item.value}
+                </button>
+              )) : '' 
+              }
+            </div>
+            <div>
+              {(isAttributes || currentAtr === 'Color') ? '' : data.product.attributes[0].items.map((item) => (  
+                <button className='pdp-atr__value'
+                        key={item.value}
+                        onClick={(e)=>addClass(e)}>
+                  {item.value}
+                </button>
+              ))}
+            </div>
           </div>
 
           <div className='pdp-price'>

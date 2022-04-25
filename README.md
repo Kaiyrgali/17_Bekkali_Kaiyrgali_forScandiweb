@@ -1,47 +1,19 @@
-#  Test tasks for http://www.scandiweb.com/
+# Test Task
+## for the position Junior React developer
+![N|Solid](https://cutt.ly/tGfawWZ)
 
-1. Product-Datail-Page
-2. Серый фон при мини корзине
-4. SCSS
-5. РидМи
-6. Перечитка
-7. Попытка снова сократить код в части cartItems
-8. Заменить картинку с кораблем для русской аудитории
+Original Task text - https://www.notion.so/Entry-React-developer-TEST-39f601f8aa3f48ac88c4a8fefda304c1
 
+- You are be expected to fetch data from the GraphQL endpoint and to provide an interface to view and interact with this data. You can find the endpoint [here](https://github.com/scandiweb/junior-react-endpoint), along with instructions on how to launch it.
+- The solution should get implemented as per design, which is available at [this link](https://www.figma.com/file/MSyCAqVy1UgNap0pvqH6H3/Junior-Frontend-Test-Designs-Public?node-id=0%3A1).
+- FAQ/frequently asked [questions](https://www.notion.so/00e72f0844a344dda28e19855d2fc34a);
 
-тут вставить рисунок логотипа компании
-https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKNm4zOvxl_gnGybkNAoliTeAtmKOIeAzVt3y_m0URidYXsthR-YAaNCEeEahL4CYkpvw&usqp=CAU
+### Attention !
 
-Исполнитель: Bekkali Kaiyrgali
-e-mail: kairgalibekkali@gmail.com
-mobile: +7-707-3783807
+- To get started, I downloaded the Figma project locally. After finishing work, I found that my local layout is different from the public one.
+- GraphQL endpoint was also downloaded locally and was not compared to the latest public version.
 
-1. Понять откуда берутся данные, что в них содержится
-1.1. Что бедет в Сторе
-2. Оформить ТЗ в Ворд
-3. Разбить макет на элементы и составить папки
-Хеадер
-Главная страница
-Корзина отдельной страницей
+### Feature
 
-4. КСС и СКСС ? Как СКСС с Редаксом взаимодействует
-5. 
-- Поиск ошибок
-- Страница - обишки
-- страница 404
-- Лоадинг-спининг красивый
-- проверить работу на соответсвие тех заданию и вопроснику к нему
-- изучить БЭМ и требования к файлам\папкам\стилям\классам\переопределение классов
-привести все в соответсвие
-- при перезагрузки страницы рисунки не обновляются
-- исповить ХТМЛ файл, иконку поменять, описание
-- Оформить и перевести РеадМи
-- scss почистить и наладить взаимосвязи после БЭМ
-
-- toggle - смена класса
-- при отсутсвия фокуса на списке курсов меню дожно скрываться
-
-
-поэксперементировать с функциями мап и ыет вместо поиска
-
-activeCurrency дублирование разобраться
+- I thought that it would be nice to have a choice of several attributes of one product, and not just one attribute. Therefore, you can select the same product with different attributes and they will appear in the cart (using the Map object).
+- By default, products labeled "Out of stock" are not active for choice. But if you want to see how the product colors are ыудусеув in the attributes, change the code in the ProductListCard.js file to the following (line 11): const urlDetails = (inStock) ? `/details/${id}` : `/details/${id}` .

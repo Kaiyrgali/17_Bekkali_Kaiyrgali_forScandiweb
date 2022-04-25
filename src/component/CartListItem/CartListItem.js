@@ -34,12 +34,13 @@ function CartListItem({product, count, activeCurrency, shoppingCart, addItemToCa
           <p className='pdp-price__value'>{price.currency.symbol+''+price.amount.toFixed(2)}</p>
         </div>
         <div className='cp-atr'>
+          
           {hasAttributes ? '' : 
             item.attributes[0].items.map((index) => (
-              <p className={'pdp-atr__value' + (index.value === item.atr ? ' selected' : '')}
-                key={index.value} >
+              <button className={(item.attributes[0].name==='Color' ? 'cp-atr__color' : 'pdp-atr__value') + (index.value === item.atr ? ' selected' : '')}
+                key={index.value} style={item.attributes[0].name==='Color' ?{backgroundColor: index.value} : {backgroundColor: 'none'}}>
                 {index.value}
-              </p> 
+              </button> 
             ))
           }
         </div>

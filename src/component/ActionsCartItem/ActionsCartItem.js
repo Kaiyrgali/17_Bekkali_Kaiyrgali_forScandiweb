@@ -33,12 +33,16 @@ function ActionsCartItem({
           <p className='basket__price'>{price.currency.symbol+''+price.amount.toFixed(2)}</p>
           {isAttributes ? '' : 
             item.attributes[0].items.map((index) => (
-              <p className={'basket__atr' 
-              + (index.value === item.atr ? ' select' : '')
-            }
-                key={index.value} >
+              <button className={(item.attributes[0].name==='Color' ? 'basket__color' : 'basket__atr') + (index.value === item.atr ? ' select' : '')}
+              key={index.value} style={item.attributes[0].name==='Color' ?{backgroundColor: index.value} : {backgroundColor: 'none'}}>
                 {index.value}
-              </p> 
+              </button>  
+            //   <p className={'basket__atr' 
+            //   + (index.value === item.atr ? ' select' : '')
+            // }
+            //     key={index.value} >
+            //     {index.value}
+            //   </p> 
             ))
           }
       </div>

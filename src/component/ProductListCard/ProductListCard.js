@@ -8,7 +8,7 @@ function ProductListCard({id, name, inStock, picture, price}) {
     backgroundImage: 'url(' + picture + ')',
   };
   const grayscale = (inStock) ? '' : ' outStock';
-  const urlDetails = (inStock) ? `/details/${id}` : '#'
+  const urlDetails = (inStock) ? `/details/${id}` : `#`;
 
   return (
     <Link to={urlDetails} className='contents'>

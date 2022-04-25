@@ -30,6 +30,23 @@
   margin-bottom: 20px;
 }
 
+.basket__color {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  border: none;
+  color: #11ffee00;
+}
+
+.basket__color.select {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #5ECE7B;
+  box-sizing: border-box;
+}
+
+
 .basket__atr {
   color: $grey;
   background-color: rgba(166, 166, 166, 0.2);

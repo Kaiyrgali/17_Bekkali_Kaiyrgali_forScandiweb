@@ -61,7 +61,6 @@
 
 .pdp-title__brand {
   margin: 0;
-  // margin-bottom: 0;
   font-weight: 600;
 }
 
@@ -82,6 +81,29 @@ margin-top: 30px;
   font-size: 18px;
   text-transform: uppercase;
 }
+
+.pdp-atr__color {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  margin-right: 10px;
+  border: none;
+  color: #11ffee00;
+}
+
+.pdp-atr__color:hover {
+  width: 36px;
+  height: 36px;
+  border: 1px solid #5ECE7B;
+}
+
+.pdp-atr__color.selected {
+  width: 36px;
+  height: 36px;
+  border: 1px solid #5ECE7B;
+  box-sizing: border-box;
+}
+
 
 .pdp-atr__value {
   background-color: $white;
