@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import CartListItem from '../component/CartListItem';
@@ -31,15 +32,20 @@ function CartPage({ activeCurrency, shoppingCart }) {
           total:
           {total}
         </p>
-        {items.length > 0 ?
-          <Link to="#">
-            <button className='cart-total-check'>check out</button>
-          </Link> 
+        {items.length > 0
+          ? <Link to="#">
+              <button className='cart-total-check'>check out</button>
+            </Link>
           : ''}
       </div>
     </div>
   );
 }
+
+CartPage.propTypes = {
+  activeCurrency: PropTypes.string.isRequired,
+  shoppingCart: PropTypes.object.isRequired,
+};
 
 const mapStateToProps = (state) => ({
   activeCurrency: state.activeCurrency,

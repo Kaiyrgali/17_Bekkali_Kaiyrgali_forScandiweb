@@ -11,7 +11,7 @@ function Header() {
       <Link to="/">
         <img
           className="logo"
-          src="../a-logo.svg" 
+          src="../a-logo.svg"
           alt="logo"
           title="Back to Category"
         />

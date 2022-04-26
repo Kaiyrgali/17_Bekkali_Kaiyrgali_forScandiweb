@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { itemAddedToCart } from '../../redux/actions';
 import './CartListItem.scss';
@@ -69,7 +70,7 @@ function CartListItem({
         <div className="cp-gallery">
           <img
             src={item.gallery[activePicture]}
-            alt="picture"
+            alt="gallery"
             className="cp-gallery__img"
             title="close-up"
           />
@@ -107,6 +108,14 @@ function CartListItem({
     </div>
   );
 }
+
+CartListItem.propTypes = {
+  product: PropTypes.string.isRequired,
+  count: PropTypes.number.isRequired,
+  activeCurrency: PropTypes.string.isRequired,
+  shoppingCarts: PropTypes.object.isRequired,
+  addItemToCart: PropTypes.func.isRequired,
+};
 
 const mapDispatchToProps = (dispatch) => ({
   addItemToCart: (newItem) => {

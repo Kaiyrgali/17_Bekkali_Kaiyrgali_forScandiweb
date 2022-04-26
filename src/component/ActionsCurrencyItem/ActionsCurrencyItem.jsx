@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './ActionsCurrencyItem.scss';
 
 function ActionsCurrencyItem({ label, symbol, changeCurrency }) {
@@ -13,5 +14,11 @@ function ActionsCurrencyItem({ label, symbol, changeCurrency }) {
     </div>
   );
 }
+
+ActionsCurrencyItem.propTypes = {
+  label: PropTypes.string.isRequired,
+  symbol: PropTypes.string.isRequired,
+  changeCurrency: PropTypes.func.isRequired,
+};
 
 export default ActionsCurrencyItem;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { itemAddedToCart } from '../../redux/actions';
 import './ActionsCartItem.scss';
@@ -60,13 +61,21 @@ function ActionsCartItem({
         </div>
 
         <div className="basket__gallery">
-          <img src={item.gallery[0]} alt="picture" className="basket-picture" title="close-up" />
+          <img src={item.gallery[0]} alt="main" className="basket__gallery" title="close-up" />
         </div>
 
       </div>
     </div>
   );
 }
+
+ActionsCartItem.propTypes = {
+  product: PropTypes.string.isRequired,
+  count: PropTypes.number.isRequired,
+  activeCurrency: PropTypes.string.isRequired,
+  shoppingCarts: PropTypes.object.isRequired,
+  addItemToCart: PropTypes.func.isRequired,
+};
 
 const mapDispatchToProps = (dispatch) => ({
   addItemToCart: (newItem) => {

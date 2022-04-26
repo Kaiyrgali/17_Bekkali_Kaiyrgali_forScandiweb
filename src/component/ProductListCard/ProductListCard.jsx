@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import './ProductListCard.scss';
 
@@ -26,5 +27,13 @@ function ProductListCard({
     </Link>
   );
 }
+
+ProductListCard.propTypes = {
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  inStock: PropTypes.bool.isRequired,
+  picture: PropTypes.string.isRequired,
+  price: PropTypes.string.isRequired,
+};
 
 export default ProductListCard;

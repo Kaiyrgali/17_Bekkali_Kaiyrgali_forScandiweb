@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { calcSum, calcQty } from '../../units';
@@ -72,6 +73,11 @@ function ActionsCart({ activeCurrency, shoppingCart }) {
     </div>
   );
 }
+
+ActionsCart.propTypes = {
+  activeCurrency: PropTypes.string.isRequired,
+  shoppingCart: PropTypes.object.isRequired,
+};
 
 const mapStateToProps = (state) => ({
   activeCurrency: state.activeCurrency,

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Title.scss';
 
 function Title({ category }) {
@@ -8,5 +9,9 @@ function Title({ category }) {
     <h2 className="category">{ titleText }</h2>
   );
 }
+
+Title.propTypes = {
+  category: PropTypes.string.isRequired,
+};
 
 export default Title;

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import {
@@ -76,7 +77,7 @@ function ProductDetailsPage({ activeCurrency, shoppingCart, addItemToCart }) {
   if (loading) return <Spinner />;
   if (error) return <ErrorIndicator />;
 
-  const mainsPicture = (activePicture) || data.product.gallery[0];
+  const mainPicture = (activePicture) || data.product.gallery[0];
   const isAttributes = (data.product.attributes[0] === undefined);
   const currentAtr = isAttributes ? '' : data.product.attributes[0].name;
 
@@ -100,7 +101,7 @@ function ProductDetailsPage({ activeCurrency, shoppingCart, addItemToCart }) {
       </div>
 
       <div className="pdp-picture">
-        <img src={mainsPicture} alt="picture" className="pdp-picture" title="close-up" />
+        <img src={mainPicture} alt="main" className="pdp-picture" title="close-up" />
       </div>
 
       <div className="pdp-details">
@@ -158,6 +159,12 @@ function ProductDetailsPage({ activeCurrency, shoppingCart, addItemToCart }) {
     </div>
   );
 }
+
+ProductDetailsPage.propTypes = {
+  activeCurrency: PropTypes.string.isRequired,
+  shoppingCart: PropTypes.object.isRequired,
+  addItemToCart: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = (state) => {
   return {

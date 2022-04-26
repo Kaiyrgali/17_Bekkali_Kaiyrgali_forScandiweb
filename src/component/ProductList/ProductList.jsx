@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {
   useQuery,
@@ -61,6 +62,11 @@ function ProductList({ category, activeCurrency }) {
     </div>
   );
 }
+
+ProductList.propTypes = {
+  category: PropTypes.string.isRequired,
+  activeCurrency: PropTypes.string.isRequired,
+};
 
 const mapStateToProps = (state) => {
   return {
