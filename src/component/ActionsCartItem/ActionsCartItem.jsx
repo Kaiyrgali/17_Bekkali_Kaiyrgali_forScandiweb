@@ -15,12 +15,13 @@ function ActionsCartItem({
 
   const changeQty = (act) => {
     const newCount = shoppingCart.get(product) + act;
+    const cartClone = new Map(shoppingCart);
     if (newCount === 0) {
-      shoppingCart.delete(product);
+      cartClone.delete(product);
     } else {
-      shoppingCart.set(product, newCount);
+      cartClone.set(product, newCount);
     }
-    addItemToCart(shoppingCart);
+    addItemToCart(cartClone);
   };
 
   return (
