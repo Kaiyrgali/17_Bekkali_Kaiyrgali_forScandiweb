@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import CartListItem from '../component/CartListItem';
 import { calcSum, calcQty } from '../units';
-
 import './CartPage.scss';
 
 function CartPage({ activeCurrency, shoppingCart }) {

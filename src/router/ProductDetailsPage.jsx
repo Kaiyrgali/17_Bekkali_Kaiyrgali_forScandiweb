@@ -1,16 +1,13 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
-
 import {
   useQuery,
   gql,
 } from '@apollo/client';
-
 import { itemAddedToCart } from '../redux/actions';
 import Spinner from '../component/Spinner';
 import ErrorIndicator from '../component/ErrorIndicator';
-
 import './ProductDetailsPage.scss';
 
 const GET_PRODUCT = gql` 
@@ -54,24 +51,18 @@ const addClass = (e) => {
 function ProductDetailsPage({ activeCurrency, shoppingCart, addItemToCart }) {
   const { id } = useParams();
 
-  const addToCart = (item, currentAtr) => {
+  const addToCart = (item) => {
     const selected = document.querySelector('.selected');
-    let atrToCart = false;
-    if (currentAtr === '') { atrToCart = 'none'; }
-    if (selected !== null) {
-      atrToCart = selected.innerHTML;
+    const atrToCart = (selected !== null) ? selected.innerHTML : 'none';
+    const itemJson = JSON.stringify(item);
+    const itemForMap = `${itemJson.substring(0, itemJson.length - 1)}, "atr": "${atrToCart}"}`;
+    const cartClone = new Map(shoppingCart);
+    if (cartClone.has(itemForMap)) {
+      cartClone.set(itemForMap, cartClone.get(itemForMap) + 1);
+    } else {
+      cartClone.set(itemForMap, 1);
     }
-    if (atrToCart) {
-      const itemJson = JSON.stringify(item);
-      const itemForMap = `${itemJson.substring(0, itemJson.length - 1)}, "atr": "${atrToCart}"}`;
-      const cartClone = new Map(shoppingCart);
-      if (cartClone.has(itemForMap)) {
-        cartClone.set(itemForMap, cartClone.get(itemForMap) + 1);
-      } else {
-        cartClone.set(itemForMap, 1);
-      }
-      addItemToCart(cartClone);
-    }
+    addItemToCart(cartClone);
   };
 
   const [activePicture, setPicture] = useState();
@@ -152,7 +143,7 @@ function ProductDetailsPage({ activeCurrency, shoppingCart, addItemToCart }) {
 
         <button
           className="pdp-button"
-          onClick={() => { addToCart(data.product, currentAtr); }}
+          onClick={() => { addToCart(data.product); }}
         >
           add to card
         </button>

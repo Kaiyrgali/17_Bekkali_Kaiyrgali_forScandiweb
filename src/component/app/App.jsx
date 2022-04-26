@@ -7,7 +7,6 @@ import {
 } from '../../router';
 import ErrorBoundary from '../ErrorBoundary';
 import Header from '../Header';
-
 import './App.scss';
 
 function App() {

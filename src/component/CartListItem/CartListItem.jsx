@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { itemAddedToCart } from '../../redux/actions';
-
 import './CartListItem.scss';
 
 function CartListItem({

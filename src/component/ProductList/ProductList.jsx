@@ -1,11 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
 import {
   useQuery,
   gql,
 } from '@apollo/client';
-
 import ProductListCard from '../ProductListCard';
 import Spinner from '../Spinner';
 import ErrorIndicator from '../ErrorIndicator';

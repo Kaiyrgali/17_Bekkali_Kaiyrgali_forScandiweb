@@ -1,7 +1,6 @@
 import React from 'react';
 import ActionsCurrency from '../ActionsCurrency';
 import ActionsCart from '../ActionsCart';
-
 import './Actions.scss';
 
 function Actions() {

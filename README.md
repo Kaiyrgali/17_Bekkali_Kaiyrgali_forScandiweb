@@ -15,8 +15,8 @@ Original Task text - https://www.notion.so/Entry-React-developer-TEST-39f601f8aa
 
 ### Feature
 
-- I thought that it would be nice to have a choice of several attributes of one product, and not just one attribute. Therefore, you can select the same product with different attributes and they will appear in the cart (using the Map object).
-- By default, products labeled "Out of stock" are not active for choice. But if you want to see how the product colors are ыудусеув in the attributes, change the code in the ProductListCard.js file to the following (line 13):
+- I thought that it would be nice to have a choice of several attributes of one product, and not just one attribute. Therefore, you can select the same product with different attributes and they will appear in the cart (using the Map object). If you do not select an item, it will not be added to shopping cart.
+- By default, products labeled "Out of stock" are not active for choice. But if you want to see how the product colors are selected in the attributes, change the code in the ProductListCard.js file to the following (line 13):
 ```sh
  const urlDetails = `/details/${id}`
 ```

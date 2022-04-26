@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { calcSum, calcQty } from '../../units';
 import ActionsCartItem from '../ActionsCartItem';
-
 import './ActionsCart.scss';
 
 function ActionsCart({ activeCurrency, shoppingCart }) {

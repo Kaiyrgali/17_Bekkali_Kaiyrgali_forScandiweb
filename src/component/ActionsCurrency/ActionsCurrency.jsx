@@ -5,9 +5,7 @@ import {
   gql,
 } from '@apollo/client';
 import { setCurrencyActive } from '../../redux/actions';
-
 import ActionsCurrencyItem from '../ActionsCurrencyItem';
-
 import './ActionsCurrency.scss';
 
 const arrowDown = '../change-currency.svg';

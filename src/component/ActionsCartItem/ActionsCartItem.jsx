@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { itemAddedToCart } from '../../redux/actions';
-
 import './ActionsCartItem.scss';
 
 function ActionsCartItem({

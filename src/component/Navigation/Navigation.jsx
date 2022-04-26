@@ -3,9 +3,7 @@ import {
   useQuery,
   gql,
 } from '@apollo/client';
-
 import NavigationItem from '../NavigationItem';
-
 import './Navigation.scss';
 
 const CATEGORY_NAMES = gql`
