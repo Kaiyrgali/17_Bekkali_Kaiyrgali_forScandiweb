@@ -47,7 +47,7 @@ function ActionsCart({ activeCurrency, shoppingCart }) {
                 product={item[0]}
                 count={item[1]}
                 activeCurrency={activeCurrency}
-                shoppingCart={shoppingCart.cartItems}
+                shoppingCarts={shoppingCart.cartItems}
               />
             ))
             : null}

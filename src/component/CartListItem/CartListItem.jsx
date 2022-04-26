@@ -5,7 +5,7 @@ import { itemAddedToCart } from '../../redux/actions';
 import './CartListItem.scss';
 
 function CartListItem({
-  product, count, activeCurrency, shoppingCart, addItemToCart,
+  product, count, activeCurrency, shoppingCarts, addItemToCart,
 }) {
   const item = JSON.parse(product);
   const price = item.prices.find(
@@ -15,8 +15,8 @@ function CartListItem({
   const hasAttributes = (item.attributes[0] === undefined);
 
   const changeQty = (act) => {
-    const newCount = shoppingCart.get(product) + act;
-    const cartClone = new Map(shoppingCart);
+    const newCount = shoppingCarts.get(product) + act;
+    const cartClone = new Map(shoppingCarts);
     if (newCount === 0) {
       cartClone.delete(product);
     } else {

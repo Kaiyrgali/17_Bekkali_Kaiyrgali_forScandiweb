@@ -8,7 +8,6 @@ import './CartPage.scss';
 
 function CartPage({ activeCurrency, shoppingCart }) {
   const items = Array.from(shoppingCart.cartItems);
-  const style = items.length > 0 ? '' : ' hidden';
   const total = `${calcQty(items)} items for ${activeCurrency}${calcSum(items, activeCurrency).toFixed(2)}`;
 
   return (
@@ -22,7 +21,7 @@ function CartPage({ activeCurrency, shoppingCart }) {
               product={item[0]}
               count={item[1]}
               activeCurrency={activeCurrency}
-              shoppingCart={shoppingCart.cartItems}
+              shoppingCarts={shoppingCart.cartItems}
             />
           ))
           : <div><p>Your card is empty</p></div>}
@@ -33,9 +32,11 @@ function CartPage({ activeCurrency, shoppingCart }) {
           total:
           {total}
         </p>
-        <Link to="#">
-          <button className={`cart-total-check${style}`}>check out</button>
-        </Link>
+        {items.length > 0 ?
+          <Link to="#">
+            <button className='cart-total-check'>check out</button>
+          </Link> 
+          : ''}
       </div>
     </div>
   );
