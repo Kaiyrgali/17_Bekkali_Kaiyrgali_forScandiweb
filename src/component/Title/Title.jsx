@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './Title.scss';
 
 function Title({ category }) {
-  const titleText = (!category) ? 'Please choice a category' : category;
+  const titleText = (category === 'none') ? 'Please choice a category' : category;
 
   return (
     <h2 className="category">{ titleText }</h2>
@@ -11,7 +11,11 @@ function Title({ category }) {
 }
 
 Title.propTypes = {
-  category: PropTypes.string.isRequired,
+  category: PropTypes.string,
+};
+
+Title.defaultProps = {
+  category: 'none',
 };
 
 export default Title;

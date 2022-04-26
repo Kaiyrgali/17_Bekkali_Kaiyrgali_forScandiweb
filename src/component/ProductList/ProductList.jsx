@@ -39,7 +39,7 @@ function ProductList({ category, activeCurrency }) {
   });
 
   if (loading) return <Spinner />;
-  if (error && category === undefined) return null;
+  if (!category) return null;
   if (error) return <ErrorIndicator />;
 
   return (
@@ -64,7 +64,7 @@ function ProductList({ category, activeCurrency }) {
 }
 
 ProductList.propTypes = {
-  category: PropTypes.string.isRequired,
+  category: PropTypes.string,
   activeCurrency: PropTypes.string.isRequired,
 };
 
